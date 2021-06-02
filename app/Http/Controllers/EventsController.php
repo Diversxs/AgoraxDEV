@@ -28,26 +28,24 @@ class EventsController extends Controller
      */
     public function create()
     {
-        //
+        // dd(new Events());
+        $newEvent = new Events();
+        return view('event.create', compact('newEvent'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        //
+        request()->valide(Events::$rules);
+        
+        Events::create($request->all());
+        
+        return redirect(route('event.index'));
+
+     
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Events  $events
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show(Events $events)
     {
         //
