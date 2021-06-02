@@ -28,10 +28,12 @@
         <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Capacity</label>
         <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Capacity" />
       </div>
+
       <div class="grid grid-cols-1">
         <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Date</label>
         <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Date" />
       </div>
+      
     </div>
 
     

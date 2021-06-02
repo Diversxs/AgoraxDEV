@@ -8,14 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Events extends Model
 {
     static $rules = [
-		'title' => 'required',
-		'description' => 'required',
-        'picture' => 'required',
+        'title' => 'required',
+        'description' => 'required',
+        // 'picture' => 'required',
         'date' => 'required',
     ];
 
-    protected $fillable = ['capacity','isFavorite'];
-    
-       
+    protected $fillable = ['capacity', 'isFavorite'];
+
+
     use HasFactory;
 }
