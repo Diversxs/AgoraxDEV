@@ -26,23 +26,20 @@ class EventsController extends Controller
     public function store(Request $request)
     {
         // dd ($request->title);
-        
+
         request()->validate(Events::$rules);
-        
+
         Events::create($request->all());
-        
+
 
         return redirect(route('events.index'));
     }
 
 
-    public function show(Events $events)
+    public function show($id)
     {
-        
         $event = Events::find($id);
-
         return view('event.show', compact('event'));
-
     }
 
     /**

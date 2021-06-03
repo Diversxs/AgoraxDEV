@@ -24,9 +24,8 @@ class EventsFactory extends Factory
         return [
             'title'=>$this->faker->company(),
             'description'=>$this->faker->realText(),
-            'picture'=>$this->faker->image(),
+            'picture'=>$this->faker->imageUrl(),
             'date'=>$this->faker->dateTime(),
-
         ];
     }
 }
