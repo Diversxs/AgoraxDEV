@@ -7,25 +7,15 @@ use Illuminate\Http\Request;
 
 class EventsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
 
         //dd(Events::paginate());
         $events = Events::paginate();
-        return view ('event.index', ['events'=>$events]);
-
+        return view('event.index', ['events' => $events]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         // dd(new Events());
@@ -33,7 +23,7 @@ class EventsController extends Controller
         return view('event.create', compact('newEvent'));
     }
 
-    
+
     public function store(Request $request)
     {
         request()->validate(Events::$rules);
@@ -42,10 +32,10 @@ class EventsController extends Controller
         
         return redirect()->route('event.index');
 
-     
+        return redirect(route('event.index'));
     }
 
-    
+
     public function show(Events $events)
     {
         //

@@ -15,17 +15,14 @@ use App\Http\Controllers\EventsController;
 */
 
 Route::get('/', function () {
-     return view('auth.login');
- });
+    return view('auth.login');
+});
 
 
 // Route::get('/', [EventsController::class, "index"]);
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 // Route::get('/create', [EventsController::class, "create"]);
 
 Route::resource('events', EventsController::class);
-
-
-
