@@ -44,7 +44,7 @@
 </Section>
 
 @foreach ( $events as $event )
-  
+
 
     <div class="flex flex-col">
         <div class="flex-none w-full h-full relative">
@@ -60,11 +60,11 @@
                 <div class="text-xl font-semibold text-gray-500">
                   {{ $event->date }}
                 </div>
-            
+
             </div>
             <div class="flex items-baseline mt-4 mb-6">
                 <div class="space-x-2 flex">
-                    <p class='overflow-x-hidden'>  
+                    <p class='overflow-x-hidden'>
                       {{ $event->description }}</p>
                 </div>
 
