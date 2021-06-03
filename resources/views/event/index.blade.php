@@ -46,6 +46,8 @@
 @foreach ( $events as $event )
 
 
+<a href="{{route('events.show',$event->id)}}">
+
     <div class="flex flex-col">
         <div class="flex-none w-full h-full relative">
           <img src="{{($event->picture) }}" class="absolute object-cover" >
@@ -83,6 +85,7 @@
                 </p>
         </form>
     </div>
+    </a>
 @endforeach
 
 

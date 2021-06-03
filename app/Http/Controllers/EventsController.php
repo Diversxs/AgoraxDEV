@@ -10,7 +10,6 @@ class EventsController extends Controller
 
     public function index()
     {
-
         //dd(Events::paginate());
         $events = Events::paginate();
         return view('event.index', ['events' => $events]);
@@ -39,7 +38,11 @@ class EventsController extends Controller
 
     public function show(Events $events)
     {
-        //
+        
+        $event = Events::find($id);
+
+        return view('event.show', compact('event'));
+
     }
 
     /**
