@@ -4,7 +4,7 @@
 
 
 <div class="flex flex-col">
-        <div class="flex-none w-full h-full relative">
+        <div class="flex-none w-10 h-15 relative">
           <img src="{{$event->picture}}" class="absolute object-cover" >
 
          

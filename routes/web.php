@@ -14,9 +14,9 @@ use App\Http\Controllers\EventsController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('auth.login');
-// });
+//Route::get('/', function () {
+    //return view('event.index');
+//});
 
 
 Route::get('/', [EventsController::class, "index"]);

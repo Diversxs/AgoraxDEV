@@ -26,7 +26,6 @@ class EventsFactory extends Factory
             'description' => $this->faker->realText(),
             'picture' => $this->faker->imageUrl(),
             'date' => $this->faker->dateTime(),
-
         ];
     }
 }

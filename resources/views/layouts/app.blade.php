@@ -17,7 +17,7 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
-        
+
 
             <!-- Page Heading -->
             <header class="bg-white shadow">
@@ -26,9 +26,9 @@
 
             <!-- Page Content -->
             <main>
-              @yield('scripts')  
+              @yield('scripts')
               @yield('content')
             </main>
-        </div>
+
     </body>
 </html>
