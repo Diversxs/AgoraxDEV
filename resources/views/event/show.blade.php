@@ -2,11 +2,12 @@
 
 @section('content')
 
+
 <div class="flex flex-col">
         <div class="flex-none w-full h-full relative">
-          <img src="{{($event->picture) }}" class="absolute object-cover" >
+          <img src="{{$event->picture}}" class="absolute object-cover" >
 
-          {{-- <img src="{{ $event->title }}" class="absolute inset-0 w-full h-full object-cover"/> --}}
+         
         </div>
         <div class="flex-auto p-6">
             <div class="flex flex-wrap">
@@ -16,11 +17,11 @@
                 <div class="text-xl font-semibold text-gray-500">
                   {{ $event->date }}
                 </div>
-            
+
             </div>
             <div class="flex items-baseline mt-4 mb-6">
                 <div class="space-x-2 flex">
-                    <p class='overflow-x-hidden'>  
+                    <p class='overflow-x-hidden'>
                       {{ $event->description }}</p>
                 </div>
 
