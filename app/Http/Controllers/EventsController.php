@@ -36,11 +36,11 @@ class EventsController extends Controller
     
     public function store(Request $request)
     {
-        request()->valide(Events::$rules);
+        request()->validate(Events::$rules);
         
         Events::create($request->all());
         
-        return redirect(route('event.index'));
+        return redirect()->route('event.index');
 
      
     }
