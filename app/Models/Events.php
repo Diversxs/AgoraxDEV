@@ -10,11 +10,11 @@ class Events extends Model
     static $rules = [
         'title' => 'required',
         'description' => 'required',
-        // 'picture' => 'required',
+        'picture',
         'date' => 'required',
     ];
 
-    protected $fillable = ['capacity', 'isFavorite'];
+    protected $fillable = ['capacity', 'isFavorite', 'title', 'description', 'date'];
 
 
     use HasFactory;

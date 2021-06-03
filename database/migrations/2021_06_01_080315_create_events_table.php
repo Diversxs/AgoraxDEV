@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use phpDocumentor\Reflection\Types\Nullable;
 
 class CreateEventsTable extends Migration
 {
@@ -19,7 +20,7 @@ class CreateEventsTable extends Migration
             $table->string('description');
             $table->integer('capacity')->default(30);
             $table->boolean('isFavorite')->default(false);
-            $table->string('picture');
+            $table->string('picture')->nullable();
             $table->dateTime('date');
             $table->timestamps();
         });
