@@ -43,8 +43,7 @@
 
 
 <a href="{{route('events.show',$event->id)}}">
-
-   
+     
 <div class="container flex items-center justify-center">
 <div class=" rounded overflow-hidden shadow-lg flex flex-col items-center m-5">
     <img class="w-48" src="{{$event->picture}}" alt="Sunset in the mountains">
