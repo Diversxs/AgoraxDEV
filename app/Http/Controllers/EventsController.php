@@ -42,37 +42,30 @@ class EventsController extends Controller
         return view('event.show', compact('event'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Events  $events
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Events $events)
+    
+    public function edit($id)
     {
-        //
+        $event = Events::find($id);
+        return view('event.edit', compact('event'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Events  $events
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Events $events)
+   
+    public function update(Request $request, Events $event)
     {
-        //
+        request()->validate(Events::$rules);
+        
+        $event->update($request->all());
+        
+        return redirect()->route('events.index')
+            ->with('success', 'Event updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Events  $events
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Events $events)
+    
+    public function destroy($id)
     {
-        //
+        $event = Events::find($id)->delete();
+
+        return redirect()->route('events.index')
+            ->with('success', 'Event deleted successfully');
     }
 }
