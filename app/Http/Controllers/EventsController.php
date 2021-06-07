@@ -50,14 +50,22 @@ class EventsController extends Controller
     }
 
    
-    public function update(Request $request, Events $events)
+    public function update(Request $request, Events $event)
     {
-        //
+        request()->validate(Events::$rules);
+        
+        $event->update($request->all());
+        
+        return redirect()->route('events.index')
+            ->with('success', 'Event updated successfully');
     }
 
     
-    public function destroy(Events $events)
+    public function destroy($id)
     {
-        //
+        $event = Events::find($id)->delete();
+
+        return redirect()->route('events.index')
+            ->with('success', 'Event deleted successfully');
     }
 }
