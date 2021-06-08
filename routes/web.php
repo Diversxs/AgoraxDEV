@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventsController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,14 +20,18 @@ use App\Http\Controllers\EventsController;
 //});
 
 
-Route::get('/', [EventsController::class, "index"]);
+Route::get('/', [HomeController::class, "index"])->name('home');
+Route::get('{id}', [HomeController::class, "show"])->name('show_event');
 
 require __DIR__ . '/auth.php';
-
- 
-
-Route::resource('events', EventsController::class);
+//Route::resource('events', EventsController::class);
 
 
+Route::get('events/index', [EventsController::class, "index"])->name('admin_index');
+Route::get('events/{id}', [EventsController::class, "show"])->name('admin_show');
+Route::get('events/create', [EventsController::class, "create"])->name('admin_create');
+Route::get('events/edit/{id}', [EventsController::class, "show"])->name('admin_edit');
 
-
+//Route::get('', function ($id) {
+    
+//})->name("");

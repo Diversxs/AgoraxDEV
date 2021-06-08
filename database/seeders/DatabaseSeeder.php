@@ -23,7 +23,10 @@ class DatabaseSeeder extends Seeder
             'email'=>'123@mail.com',
             'isAdmin'=>true]);
 
+<<<<<<< HEAD
         
+=======
+>>>>>>> e44c87904599f61e54f3f9d6489bd5a784a81def
 
     }
 }
