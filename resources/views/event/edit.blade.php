@@ -8,29 +8,30 @@
       <img src="../storage/Logo.svg" alt="">      </div>
     </div>
 
-<form action="{{ route('events.store') }}" method="POST">
+<form action="{{ route('events.update', $event->id) }}" method="POST" >
+{{ method_field('PATCH') }}
     @csrf
     <div class="flex justify-center">
       <div class="flex">
-        <h1 class="text-gray-600 font-bold md:text-2xl text-xl">Crear evento</h1>
+        <h1 class="text-gray-600 font-bold md:text-2xl text-xl">Editar evento</h1>
       </div>
     </div>
 
     
     <div class="grid grid-cols-1 mt-5 mx-7">
       <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Event title</label>
-      <input class="py-2 px-3 rounded-lg border-2 border-red-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Title" name="title"  />
+      <input class="py-2 px-3 rounded-lg border-2 border-red-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="" name="title" value="{{ $event->title }}"/> 
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
       <div class="grid grid-cols-1">
         <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Capacity</label>
-        <input class="py-2 px-3 rounded-lg border-2 border-red-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="number" placeholder="Capacity" name="capacity" />
+        <input class="py-2 px-3 rounded-lg border-2 border-red-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="number" placeholder="Capacity" name="capacity" value="{{ $event->capacity }}" />
       </div>
 
       <div class="grid grid-cols-1">
         <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Date</label>
-        <input class="py-2 px-3 rounded-lg border-2 border-red-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="date" placeholder="Date" name="date" />
+        <input class="py-2 px-3 rounded-lg border-2 border-red-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="date" placeholder="Date" name="date" value="{{ $event->date }}" />
       </div>
       
     </div>
@@ -39,7 +40,7 @@
 
     <div class="grid grid-cols-1 mt-5 mx-7">
       <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Description</label>
-      <input class="py-2 px-3 rounded-lg border-2 border-red-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Description" name="description" />
+      <input class="py-2 px-3 rounded-lg border-2 border-red-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Description" name="description" value="{{ $event->description }}" />
     </div>
 
     <div class="grid grid-cols-1 mt-5 mx-7">
@@ -57,7 +58,8 @@
 
     <div class='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
       <button class='w-auto bg-green-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Cancel</button>
-      <button class='w-auto bg-purple-500 hover:bg-purple-700 rounded-lg shadow-xl font-medium text-white px-4 py-2' type="submit">Create</button>
+      <button class='w-auto bg-purple-500 hover:bg-purple-700 rounded-lg shadow-xl font-medium text-white px-4 py-2' type="submit">Update</button>
+      
     </div>
   
     </form>
