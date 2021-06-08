@@ -7,12 +7,20 @@ use Illuminate\Http\Request;
 
 class EventsController extends Controller
 {
-
+    public function __construct(){
+         $this->middleware('auth');
+     }
+    
     public function index()
     {
-        //dd(Events::paginate());
         $events = Events::paginate();
-        return view('event.index', ['events' => $events]);
+        return view('event.index', ['events'=>$events]);
+    }
+
+    public function show($id)
+    {
+        $event = Events::find($id);
+        return view('event.show', compact('event'));
     }
 
     public function create()
@@ -32,15 +40,15 @@ class EventsController extends Controller
         Events::create($request->all());
 
 
-        return redirect(route('events.index'));
+        return redirect(route('home'));
     }
 
 
-    public function show($id)
-    {
-        $event = Events::find($id);
-        return view('event.show', compact('event'));
-    }
+    // public function show($id)
+    // {
+    //     $event = Events::find($id);
+    //     return view('event.show', compact('event'));
+    // }
 
     
     public function edit($id)
