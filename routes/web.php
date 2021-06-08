@@ -23,6 +23,10 @@ Route::get('/', [EventsController::class, "index"]);
 
 require __DIR__ . '/auth.php';
 
-// Route::get('/create', [EventsController::class, "create"]);
+ 
 
 Route::resource('events', EventsController::class);
+
+
+
+

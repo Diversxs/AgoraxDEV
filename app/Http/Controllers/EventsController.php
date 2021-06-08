@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Events;
 use Illuminate\Http\Request;
+use App\Http\Middleware\IsAdmin; 
 
 class EventsController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth', ['except'=>['index', 'show']]);
+    }
+
 
     public function index()
     {
