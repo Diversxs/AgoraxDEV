@@ -7,14 +7,15 @@ use Illuminate\Http\Request;
 
 class EventsController extends Controller
 {
-    public function __construct(){
-         $this->middleware('auth');
-     }
-    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $events = Events::paginate();
-        return view('event.index', ['events'=>$events]);
+        return view('event.index', ['events' => $events]);
     }
 
     public function show($id)
@@ -50,25 +51,25 @@ class EventsController extends Controller
     //     return view('event.show', compact('event'));
     // }
 
-    
+
     public function edit($id)
     {
         $event = Events::find($id);
         return view('event.edit', compact('event'));
     }
 
-   
+
     public function update(Request $request, Events $event)
     {
         request()->validate(Events::$rules);
-        
+
         $event->update($request->all());
-        
+
         return redirect()->route('events.index')
             ->with('success', 'Event updated successfully');
     }
 
-    
+
     public function destroy($id)
     {
         $event = Events::find($id)->delete();
