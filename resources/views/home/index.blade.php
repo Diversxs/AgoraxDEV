@@ -42,7 +42,7 @@
 @foreach ( $events as $event )
 
 
-<a href="{{route('events.show',$event->id)}}">
+<a href="{{route('show_event', $event->id)}}">
      
 <div class="container flex items-center justify-center">
 <div class=" rounded overflow-hidden shadow-lg flex flex-col items-center m-5">
@@ -63,11 +63,11 @@
         <div class="flex-auto flex space-x-3 m-5 justify-center">
             
             <button class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" type="submit">Book this event</button>
-            <a class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" href="{{route('events.edit',$event->id)}}"><button  type="submit">Edit</button></a>
-            <form action="{{ route('events.destroy',$event->id) }}" method="POST">
+            {{-- <a class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" href="{{route('events.edit',$event->id)}}"><button  type="submit">Edit</button></a> --}}
+            {{-- <form action="{{ route('events.destroy',$event->id) }}" method="POST"> --}}
             @csrf
             @method('DELETE')
-            <a class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" href="{{route('events.destroy',$event->id)}}"><button  type="submit">Delete</button></a>
+            {{-- <a class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" href="{{route('events.destroy',$event->id)}}"><button  type="submit">Delete</button></a> --}}
             </form>
         </div>
     </div>
