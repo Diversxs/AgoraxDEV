@@ -43,7 +43,7 @@
 
 
 <a href="{{route('logged_show', $event->id)}}">
-     
+
 <div class="container flex items-center justify-center">
 <div class=" rounded overflow-hidden shadow-lg flex flex-col items-center m-5">
     <img class="w-48" src="{{$event->picture}}" alt="Sunset in the mountains">
@@ -61,7 +61,7 @@
             {{ $event->date }}
         </div>
         <div class="flex-auto flex space-x-3 m-5 justify-center">
-            
+
             <button class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" type="submit">Book this event</button>
             <a class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" href="{{route('admin_edit',$event->id)}}"><button  type="submit">Edit</button></a>
             <form action="{{ route('events.destroy',$event->id) }}" method="POST">

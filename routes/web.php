@@ -23,7 +23,7 @@ use App\Http\Controllers\HomeController;
 Route::get('/events', [EventsController::class, "index"])->name('logged_index');
 Route::get('/events/show/{id}', [EventsController::class, "show"])->name('logged_show');
 Route::get('/events/create', [EventsController::class, "create"])->name('admin_create');
-Route::get('/events/edit/{id}', [EventsController::class, "show"])->name('admin_edit');
+Route::get('/events/edit/{id}', [EventsController::class, "edit"])->name('admin_edit');
 Route::resource('events', EventsController::class);
 
 Route::get('/', [HomeController::class, "index"])->name('home');
@@ -36,5 +36,5 @@ require __DIR__ . '/auth.php';
 
 
 //Route::get('', function ($id) {
-    
+
 //})->name("");
