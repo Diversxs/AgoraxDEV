@@ -39,6 +39,9 @@
     </div>
 </Section>
 
+
+<button class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" type="submit">
+<a class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" href="{{route('admin_create')}}"><button  type="submit">Create Event</button></a>
 @foreach ( $events as $event )
 
 
@@ -60,14 +63,16 @@
         <div class="text-xl font-semibold text-gray-500">
             {{ $event->date }}
         </div>
+
         <div class="flex-auto flex space-x-3 m-5 justify-center">
 
             <button class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" type="submit">Book this event</button>
             <a class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" href="{{route('admin_edit',$event->id)}}"><button  type="submit">Edit</button></a>
-            <form action="{{ route('events.destroy',$event->id) }}" method="POST">
+
+            <form action="{{ route('admin_delete',$event->id) }}" method="POST">
             @csrf
             @method('DELETE')
-            <a class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" href="{{route('events.destroy',$event->id)}}"><button  type="submit">Delete</button></a>
+            <a class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" href="{{route('admin_delete',$event->id)}}"><button  type="submit">Delete</button></a>
             </form>
         </div>
     </div>
