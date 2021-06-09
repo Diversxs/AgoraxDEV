@@ -8,7 +8,7 @@
       <img src="../storage/Logo.svg" alt="">      </div>
     </div>
 
-<form action="{{ route('events.store') }}" method="POST">
+<form action="{{ route('admin_store') }}" method="GET">
     @csrf
     <div class="flex justify-center">
       <div class="flex">

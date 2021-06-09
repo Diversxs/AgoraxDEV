@@ -8,8 +8,8 @@
       <img src="../storage/Logo.svg" alt="">      </div>
     </div>
 
-<form action="{{ route('events.update', $event->id) }}" method="POST" >
-{{ method_field('PATCH') }}
+<form action="{{ route('admin_update', $event->id) }}" method="POST" >
+{{ method_field('GET') }}
     @csrf
     <div class="flex justify-center">
       <div class="flex">

@@ -17,15 +17,18 @@ use App\Http\Middleware\IsAdmin;
 */
 
 //Route::get('/', function () {
-    //return view('event.index');
+//return view('event.index');
 //});
 
 
 Route::get('/events', [EventsController::class, "index"])->name('logged_index');
 Route::get('/events/show/{id}', [EventsController::class, "show"])->name('logged_show');
-Route::get('/events/create', [EventsController::class, "create"])->name('admin_create')->middleware('IsAdmin');
-Route::get('/events/edit/{id}', [EventsController::class, "show"])->name('admin_edit')->middleware('IsAdmin');
-Route::resource('events', EventsController::class)->middleware('IsAdmin');
+Route::get('/events/create', [EventsController::class, "create"])->name('admin_create')->middleware(IsAdmin::class);
+Route::get('/events/edit/{id}', [EventsController::class, "edit"])->name('admin_edit')->middleware(IsAdmin::class);
+Route::delete('events/delete/{id}', [EventsController::class, "destroy"])->name('admin_destroy')->middleware(IsAdmin::class);
+Route::get('events/store', [EventsController::class, "store"])->name('admin_store')->middleware(IsAdmin::class);
+Route::get('events/update/{id}', [EventsController::class, "update"])->name('admin_update')->middleware(IsAdmin::class);
+
 
 Route::get('/', [HomeController::class, "index"])->name('home');
 Route::get('/show/{id}', [HomeController::class, "show"])->name('show_event');
