@@ -18,4 +18,8 @@ class Events extends Model
 
 
     use HasFactory;
+
+    public function BookedInUsers(){
+        return $this->belongsToMany(User::class,'events_user');
+    }
 }

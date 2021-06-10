@@ -21,7 +21,9 @@ use App\Http\Middleware\IsAdmin;
 //});
 //->middleware(IsAdmin::class)
 
-Route::get('/events', [EventsController::class, "index"])->name('logged_index');
+
+Route::get('/events/subscribe', [EventsController::class, "bookEvent"])->name('subscribe');
+Route::get('/events', [EventsController::class, "index"])->name('loged_index');
 Route::get('/events/show/{id}', [EventsController::class, "show"])->name('logged_show');
 Route::get('/events/create', [EventsController::class, "create"])->name('admin_create')->middleware(IsAdmin::class);
 Route::get('/events/{id}/edit', [EventsController::class, "edit"])->name('admin_edit')->middleware(IsAdmin::class);
