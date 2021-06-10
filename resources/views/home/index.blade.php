@@ -5,7 +5,7 @@
 @include('components.sliderjs')
 @endsection
 
-<Section class="slider">
+<!-- <Section class="slider">
     <div class="sliderAx h-auto">
         <div id="slider-1" class="container mx-auto">
             <div class="bg-cover bg-center  h-auto text-white py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1544427920-c49ccfb85579?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1422&q=80)">
@@ -16,7 +16,7 @@
                     <a href="#" class="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Contact
                         us</a>
                 </div>
-            </div> <!-- container -->
+            </div> 
             <br>
         </div>
 
@@ -29,15 +29,59 @@
                 <a href="#" class="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Contact
                     us</a>
 
-            </div> <!-- container -->
-            <br>
+            </div> 
         </div>
     </div>
     <div class="flex justify-between w-12 mx-auto pb-2">
         <button id="sButton1" onclick="sliderButton1()" class="bg-purple-400 rounded-full w-4 pb-2 "></button>
         <button id="sButton2" onclick="sliderButton2() " class="bg-purple-400 rounded-full w-4 p-2"></button>
     </div>
-</Section>
+</Section> -->
+
+<style>
+    .snap-x {
+        scroll-snap-type: x mandatory;
+        
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+    .snap-start {
+      scroll-snap-align: start;
+    }
+    
+    </style>
+    
+    
+    <div class="flex flex-col items-center m-8">
+    
+      <div class="w-full bg-white rounded overflow-x-hidden flex snap-x" style="height: 40vh">
+        <div class="snap-start w-full h-full flex items-center justify-center text-white text-4xl font-bold flex-shrink-0 bg-blue-600" id="slide-1">
+          Slide 1
+        </div>
+        <div class="snap-start w-full h-full flex items-center justify-center text-white text-4xl font-bold flex-shrink-0 bg-green-600" id="slide-2">
+          Slide 2
+        </div>
+        <div class="snap-start w-full h-full flex items-center justify-center text-white text-4xl font-bold flex-shrink-0 bg-red-600" id="slide-3">
+          Slide 3
+        </div>
+        <div class="snap-start w-full h-full flex items-center justify-center text-white text-4xl font-bold flex-shrink-0 bg-purple-600" id="slide-5">
+          Slide 4
+        </div>
+        <div class="snap-start w-full h-full flex items-center justify-center text-white text-4xl font-bold flex-shrink-0 bg-black relative" id="slide-6">
+          <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=448&q=80" class="h-full w-full object-cover absolute inset-0 z-10 opacity-25">
+          <h1 class="z-20 text-center">Any kind of content here, images too!</h1>
+        </div>
+      </div>
+    
+      <div class="flex mt-8">
+        <a class="w-8 mr-1 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center" href="#slide-1">1</a>
+        
+        <a class="w-8 mr-1 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center" href="#slide-2">2</a>
+        <a class="w-8 mr-1 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center" href="#slide-3">3</a>
+        <a class="w-8 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center" href="#slide-5">4</a>
+        
+      </div>
+    </div>
 
 @foreach ( $events as $event )
 
