@@ -24,7 +24,8 @@ Route::get('/events', [EventsController::class, "index"])->name('logged_index');
 Route::get('/events/show/{id}', [EventsController::class, "show"])->name('logged_show');
 Route::get('/events/create', [EventsController::class, "create"])->name('admin_create');
 Route::get('/events/edit/{id}', [EventsController::class, "edit"])->name('admin_edit');
-Route::resource('events', EventsController::class);
+// Route::resource('events', EventsController::class);
+Route::delete('events/{id}', [EventsController::class, "destroy"])->name('admin_delete');
 
 Route::get('/', [HomeController::class, "index"])->name('home');
 Route::get('/show/{id}', [HomeController::class, "show"])->name('show_event');

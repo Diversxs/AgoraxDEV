@@ -64,10 +64,10 @@
             
             <button class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" type="submit">Book this event</button>
             <a class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" href="{{route('admin_edit',$event->id)}}"><button  type="submit">Edit</button></a>
-            <form action="{{ route('events.destroy',$event->id) }}" method="POST">
+            <form action="{{ route('admin_delete',$event->id) }}" method="POST">
             @csrf
             @method('DELETE')
-            <a class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" href="{{route('events.destroy',$event->id)}}"><button  type="submit">Delete</button></a>
+            <a class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" href="{{route('admin_delete',$event->id)}}"><button  type="submit">Delete</button></a>
             </form>
         </div>
     </div>
