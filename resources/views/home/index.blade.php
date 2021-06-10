@@ -40,6 +40,8 @@
 </Section>
 
 @foreach ( $events as $event )
+
+<a href="{{route('show_event', $event->id)}}">
 <div class="content">
     <div class="flex items-center justify-between w-full my-4 pl-4 sm:pr-4">
         
@@ -56,12 +58,14 @@
                     <div class="flex-auto ml-3 justify-evenly py-2">
                         <div class="flex flex-wrap ">
                             
-                            <h2 class="flex-auto text-lg font-medium">Albert camus biografia</h2>
+                            <h2 class="flex-auto text-lg font-medium" >Albert camus biografia</h2>
+                           
                         </div>
                         <p class="mt-3"></p>
                         <div class="flex py-4  text-sm text-gray-600">
-                            <div class="flex-1 inline-flex items-center">
-                                <svg xmlns="<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div class="flex-1 inline-flex items-center" >
+                                {{ $event->capacity}}
+                                <svg xmlns="<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" >
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                                   </svg>
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -72,20 +76,22 @@
                                 </svg>
                                 <p class="">30</p>
                             </div>
-                            <div class="flex-1 inline-flex items-center">
+                            <div class="flex-1 inline-flex items-center" >
+                                
+                                
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
-                                <p class="">05-25-2021</p>
+                                <p class="">{{ $event->date }}</p>
                             </div>
                         </div>
                         <div class="flex p-4 pb-2 border-t border-gray-200 "></div>
                         <div class="flex space-x-3 text-sm font-medium">
                             <div class="flex-auto flex space-x-3">
                                
-                            <button
+                            <button type="submit" href="{{route('events.edit',$event->id)}}"
                                 class="mb-2 md:mb-0 bg-gray-900 px-5 py-2 shadow-sm tracking-wider text-white rounded-full hover:bg-gray-800"
                                 type="button" aria-label="like"> Apuntar-se</button>
                                 
