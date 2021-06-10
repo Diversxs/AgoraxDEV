@@ -34,14 +34,13 @@ class EventsController extends Controller
 
     public function store(Request $request)
     {
-        // dd ($request->title);
 
         request()->validate(Events::$rules);
 
         Events::create($request->all());
 
 
-        return redirect(route('home'));
+        return redirect(route('logged_index'));
     }
 
 
@@ -61,7 +60,7 @@ class EventsController extends Controller
 
         $event->update($request->all());
 
-        return redirect()->route('events.index')
+        return redirect()->route('logged_index')
             ->with('success', 'Event updated successfully');
     }
 
@@ -70,7 +69,7 @@ class EventsController extends Controller
     {
         $event = Events::find($id)->delete();
 
-        return redirect()->route('events.index')
+        return redirect()->route('logged_index')
             ->with('success', 'Event deleted successfully');
     }
 }
