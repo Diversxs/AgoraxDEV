@@ -8,7 +8,7 @@
       <img src="../storage/Logo.svg" alt="">      </div>
     </div>
 
-<form action="{{ route('events.store') }}" method="POST">
+<form action="{{ route('admin_store') }}" method="POST">
     @csrf
     <div class="flex justify-center">
       <div class="flex">
@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    
+
     <div class="grid grid-cols-1 mt-5 mx-7">
       <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Event title</label>
       <input class="py-2 px-3 rounded-lg border-2 border-red-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Title" name="title"  />
@@ -32,10 +32,10 @@
         <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Date</label>
         <input class="py-2 px-3 rounded-lg border-2 border-red-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="date" placeholder="Date" name="date" />
       </div>
-      
+
     </div>
 
-    
+
 
     <div class="grid grid-cols-1 mt-5 mx-7">
       <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Description</label>
@@ -59,10 +59,10 @@
       <button class='w-auto bg-green-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Cancel</button>
       <button class='w-auto bg-purple-500 hover:bg-purple-700 rounded-lg shadow-xl font-medium text-white px-4 py-2' type="submit">Create</button>
     </div>
-  
+
     </form>
   </div>
-  
+
 </div>
 
 @endsection

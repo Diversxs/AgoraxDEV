@@ -4,11 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Events;
 use Illuminate\Http\Request;
-use App\Http\Middleware\IsAdmin; 
-
-class EventsController extends Controller
 {
-    public function __construct()
     {
         $this->middleware('auth');
     }
@@ -16,43 +12,49 @@ class EventsController extends Controller
     public function index()
     {
         $events = Events::paginate();
-        return view('event.index', ['events' => $events]);
+        if (Auth::user()->isAdmin){
+            return view('admin.index', ['events' => $events]);
+        }
+
+            return view('user.index', ['events' => $events]);
+
     }
 
     public function show($id)
     {
         $event = Events::find($id);
-        return view('event.show', compact('event'));
+        if (Auth::user()->isAdmin){
+            return view('admin.show', ['events' => $event]);
+        }
+
+            return view('user.show', ['events' => $event]);
+
+
     }
 
     public function create()
     {
-        // dd(new Events());
         $newEvent = new Events();
-        return view('event.create', compact('newEvent'));
+        return view('admin.create', compact('newEvent'));
     }
 
 
     public function store(Request $request)
     {
-        // dd ($request->title);
 
         request()->validate(Events::$rules);
 
         Events::create($request->all());
 
 
-        return redirect(route('home'));
+        return redirect(route('logged_index'));
     }
-
-
-
 
 
     public function edit($id)
     {
         $event = Events::find($id);
-        return view('event.edit', compact('event'));
+        return view('admin.edit', compact('event'));
     }
 
 
@@ -62,7 +64,7 @@ class EventsController extends Controller
 
         $event->update($request->all());
 
-        return redirect()->route('events.index')
+        return redirect()->route('logged_index')
             ->with('success', 'Event updated successfully');
     }
 
@@ -70,8 +72,7 @@ class EventsController extends Controller
     public function destroy($id)
     {
         $event = Events::find($id)->delete();
-
-        return redirect()->route('events.index')
+        return redirect()->route('logged_index')
             ->with('success', 'Event deleted successfully');
     }
 }
