@@ -34,14 +34,13 @@ class EventsController extends Controller
 
     public function store(Request $request)
     {
-        // dd ($request->title);
 
         request()->validate(Events::$rules);
 
         Events::create($request->all());
 
 
-        return redirect(route('home'));
+        return redirect(route('logged_index'));
     }
 
 
