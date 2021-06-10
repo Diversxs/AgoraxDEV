@@ -86,14 +86,22 @@ class EventsController extends Controller
         $user = User::find($user_id);
         $event = Events::find($id);
 
-        $user->EventsBookedIn()->attach($event->id);
+        $user->eventsBookedIn()->attach($event->id);
     }
     public function CancelbookedEvent($user_id, $id){
 
         $user = User::find($user_id);
         $event = Events::find($id);
 
-        $user->EventsBookedIn()->detach($event->id);
+        $user->eventsBookedIn()->detach($event->id);
+    }
+
+    public function userEvents(){
+        $user=Auth::user();
+        $events = $user->eventsBookedIn;
+        dd($events);
+
+        return view('user.bookedEvents', ['events_user' => $events]);
     }
 
 }
