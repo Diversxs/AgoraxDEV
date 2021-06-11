@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(10)->create();
+        User::factory(4)->create();
         Events::factory(6)->create();
         User::factory()->create([
             'name'=>'root',

@@ -36,14 +36,3 @@ Route::get('/', [HomeController::class, "index"])->name('home');
 Route::get('/show/{id}', [HomeController::class, "show"])->name('show_event');
 
 require __DIR__ . '/auth.php';
-<<<<<<< HEAD
-//Route::resource('events', EventsController::class);
-
-
-
-
-//Route::get('', function ($id) {
-    
-//})->name("");
-=======
->>>>>>> d059b70d1f91e5edc09888bd948327bd575e0b8a

@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Events;
 use Illuminate\Http\Request;
+use App\Models\User;
+
+
+class EventsController extends Controller
 {
+    public function __construct()
     {
         $this->middleware('auth');
     }
