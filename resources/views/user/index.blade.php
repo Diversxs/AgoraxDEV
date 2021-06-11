@@ -63,7 +63,7 @@
         <div class="flex-auto flex space-x-3 m-5 justify-center">
 
 
-            <a class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" href="{{route('subscribe',[$user->id, $event->id])}}"><button  type="submit">Book this Event</button></a>
+            <a class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" href="{{route('subscribe',[$event->id])}}"><button  type="submit">Book this Event</button></a>
             @csrf
             @method('DELETE')
 

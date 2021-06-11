@@ -100,8 +100,8 @@ class EventsController extends Controller
     public function userEvents(){
         $user=Auth::user();
         $events = $user->eventsBookedIn;
-        dd($events);
-        return view('user.bookedEvents', ['events_user' => $events]);
+
+        return view('user.bookedEvents', ['events_user' =>$events]);
     }
 
 }

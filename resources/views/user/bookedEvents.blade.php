@@ -2,7 +2,7 @@
 
 @section('content')
 
-@foreach ( $events as $event )
+@foreach ( $events_user as $event )
 
 
     <a href="{{route('show_event', $event->id)}}">
