@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Events;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 

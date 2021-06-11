@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Events;
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
+use  Illuminate\Support\Facades\Auth;
+
 
 
 class EventsController extends Controller
@@ -80,4 +82,28 @@ class EventsController extends Controller
         return redirect()->route('logged_index')
             ->with('success', 'Event deleted successfully');
     }
+
+    public function bookEvent($user_id, $id){
+
+        $user = User::find($user_id);
+        $event = Events::find($id);
+
+        $user->eventsBookedIn()->attach($event->id);
+    }
+    public function CancelbookedEvent($user_id, $id){
+
+        $user = User::find($user_id);
+        $event = Events::find($id);
+
+        $user->eventsBookedIn()->detach($event->id);
+    }
+
+    public function userEvents(){
+        $user=Auth::user();
+        $events = $user->eventsBookedIn;
+        dd($events);
+
+        return view('user.bookedEvents', ['events_user' => $events]);
+    }
+
 }
