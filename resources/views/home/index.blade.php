@@ -115,7 +115,7 @@
                             <a class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" href="{{route('events.show',$event->id)}}"><button  type="submit">book</button></a> 
                             
                            
-         >
+         
                         </div>
                     </div>
 
