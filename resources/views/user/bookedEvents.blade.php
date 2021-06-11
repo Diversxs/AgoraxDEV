@@ -27,8 +27,7 @@
 
 
                         <a class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" href="{{route('subscribe',[$user->id, $event->id])}}"><button  type="submit"> Cancel Booking for this Event</button></a>
-                        @csrf
-                        @method('DELETE')
+                    
 
                         </form>
                     </div>
