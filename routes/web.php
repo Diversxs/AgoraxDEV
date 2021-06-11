@@ -20,7 +20,7 @@ use Illuminate\Auth\Events\Login;
 //Route::get('/', function () {
 //return view('event.index');
 //});
-//->middleware(IsAdmin::class)
+
 
 Route::get('/events/EventsBookedIn', [EventsController::class, 'userEvents']);
 Route::get('/events/subscribe', [EventsController::class, "bookEvent"])->name('subscribe');
@@ -31,7 +31,6 @@ Route::get('/events/{id}/edit', [EventsController::class, "edit"])->name('admin_
 Route::delete('/events/delete/{id}', [EventsController::class, "destroy"])->name('admin_delete')->middleware(IsAdmin::class);
 Route::post('/events/store', [EventsController::class, "store"])->name('admin_store')->middleware(IsAdmin::class);
 Route::patch('/events/{event}/update', [EventsController::class, "update"])->name('admin_update')->middleware(IsAdmin::class);
-Route::middleware('/Login');
 
 
 

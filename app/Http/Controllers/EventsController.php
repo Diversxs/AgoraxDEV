@@ -83,18 +83,17 @@ class EventsController extends Controller
             ->with('success', 'Event deleted successfully');
     }
 
-    public function bookEvent($user_id, $id){
+    public function bookEvent($id){
 
-        $user = User::find($user_id);
+        $user=Auth::user();
         $event = Events::find($id);
 
         $user->eventsBookedIn()->attach($event->id);
     }
-    public function CancelbookedEvent($user_id, $id){
+    public function CancelbookedEvent($id){
 
-        $user = User::find($user_id);
+        $user=Auth::user();
         $event = Events::find($id);
-
         $user->eventsBookedIn()->detach($event->id);
     }
 
@@ -102,7 +101,6 @@ class EventsController extends Controller
         $user=Auth::user();
         $events = $user->eventsBookedIn;
         dd($events);
-
         return view('user.bookedEvents', ['events_user' => $events]);
     }
 
