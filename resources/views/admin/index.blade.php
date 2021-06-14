@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@section('scripts')
-@include('components.sliderjs')
-@endsection
+
 
 
 <p>{{ Auth::user()->name }}</p>
