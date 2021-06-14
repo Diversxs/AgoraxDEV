@@ -22,7 +22,7 @@ use Illuminate\Auth\Events\Login;
 //});
 
 
-Route::get('/events/EventsBookedIn', [EventsController::class, 'userEvents']);
+Route::get('/events/EventsBookedIn', [EventsController::class, 'userEvents'])->name('userEvents');
 Route::get('/events/subscribe', [EventsController::class, "bookEvent"])->name('subscribe');
 Route::get('/events', [EventsController::class, "index"])->name('logged_index');
 Route::get('/events/show/{id}', [EventsController::class, "show"])->name('logged_show');

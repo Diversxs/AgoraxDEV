@@ -1,28 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-@section('scripts')
-@include('components.sliderjs')
-@endsection
+
 
 
 
 <style>
     .snap-x {
         scroll-snap-type: x mandatory;
-        
+
       scroll-behavior: smooth;
       -webkit-overflow-scrolling: touch;
     }
     .snap-start {
       scroll-snap-align: start;
     }
-    
+
     </style>
-    
-    
+
+
     <div class="flex flex-col items-center m-8">
-    
+
       <div class="w-full bg-white rounded overflow-x-hidden flex snap-x" style="height: 40vh">
         <div class="snap-start w-full h-full flex items-center justify-center text-white text-4xl font-bold flex-shrink-0 bg-blue-600" id="slide-1">
           Slide 1
@@ -41,18 +39,19 @@
           <h1 class="z-20 text-center">Any kind of content here, images too!</h1>
         </div>
       </div>
-    
+
       <div class="flex mt-8">
         <a class="w-8 mr-1 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center" href="#slide-1">1</a>
-        
+
         <a class="w-8 mr-1 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center" href="#slide-2">2</a>
         <a class="w-8 mr-1 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center" href="#slide-3">3</a>
         <a class="w-8 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center" href="#slide-5">4</a>
-        
+
       </div>
     </div>
 
-        <p>{{ Auth::user()->name }}</p>
+    <a method="Post " href="{{route('userEvents')}}"><button class="ml-8 my-8 bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" type="submit">My Events</button></a>
+
 @foreach ( $events as $event )
 
 <a href="{{route('show_event', $event->id)}}">
@@ -80,17 +79,17 @@
                             </svg>
                             <p class="text-lg font-semibold text-red-600">{{ $event->date }}</p>
 
-                           
-                            
-                            <a class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" ><button  type="submit">book</button></a> 
-                            
-                           
-         
+
+
+                            <a class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" ><button  type="submit">book</button></a>
+
+
+
                         </div>
                     </div>
 
 
-                    
+
                     </div>
                 </div>
 

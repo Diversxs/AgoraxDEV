@@ -2,7 +2,9 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <div class="  ">
+                    <img src="https://i.ibb.co/CbHhPbW/Logo-1.png" alt="Logo-1" style="width: 80px;" />     
+                  </div>
             </a>
         </x-slot>
 
@@ -27,7 +29,7 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <x-button>
+                <x-button class="">
                     {{ __('Email Password Reset Link') }}
                 </x-button>
             </div>

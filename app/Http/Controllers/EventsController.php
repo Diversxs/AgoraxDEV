@@ -25,6 +25,8 @@ class EventsController extends Controller
 
             return view('user.index', ['events' => $events]);
 
+        
+
     }
 
     public function show($id)
@@ -98,10 +100,9 @@ class EventsController extends Controller
     }
 
     public function userEvents(){
-        $user=Auth::user();
+        $user= Auth::user();
         $events = $user->eventsBookedIn;
-
-        return view('user.bookedEvents', ['events_user' =>$events]);
+        return view('user.bookedEvents', ['events_user' => $events]);
     }
 
 }
