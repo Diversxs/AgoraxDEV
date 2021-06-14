@@ -19,6 +19,8 @@
 
         #hola {
             font-size:20px;
+            color: black;
+            margin: 10px;
         }
 
         #adios {
@@ -29,11 +31,11 @@
     @endforeach
 
 
-    <div class="flex flex-col items-center m-8 ">
+    <div class="flex flex-col items-center m-8  ">
 
-        <div class="w-11/12 bg-white rounded overflow-x-hidden flex snap-x b" style="height: 40vh">
+        <div class="w-11/12 bg-white rounded overflow-x-hidden flex snap-x b" style="height: 40vh;">
             @foreach ($events as $event)
-            <div class="snap-start w-full h-full flex items-center justify-center text-white text-4xl font-bold flex-shrink-0 bg-blue-600"
+            <div class="snap-start w-full h-full flex items-center justify-center text-white text-4xl font-bold flex-shrink-0 "
                 id="slide-{{ $event->id }}"> 
                  <h2 id="hola">{{ $event->title }}</h2>
                 <img id="adios" class="w-50 " src="{{$event->picture}}" >
