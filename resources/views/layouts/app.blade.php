@@ -26,7 +26,7 @@
 
             <!-- Page Content -->
             <main>
-              @yield('scripts')
+           
               @yield('content')
             </main>
 

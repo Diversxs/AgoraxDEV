@@ -25,6 +25,8 @@ class EventsController extends Controller
 
             return view('user.index', ['events' => $events]);
 
+        
+
     }
 
     public function show($id)
