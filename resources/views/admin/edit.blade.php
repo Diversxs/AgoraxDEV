@@ -45,6 +45,11 @@
     </div>
 
     <div class="grid grid-cols-1 mt-5 mx-7">
+      <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Highlight Event</label>
+      <input type="checkbox" value="Highlight Event"></input>
+    </div>
+
+    <div class="grid grid-cols-1 mt-5 mx-7">
       <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold mb-1">Upload Photo</label>
         <div class='flex items-center justify-center w-full'>
             <label class='flex flex-col border-4 border-dashed w-full h-32 hover:bg-white-100 hover:border-red-300 group'>
@@ -60,7 +65,7 @@
     <div class='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
       <button class='w-auto bg-red-500 hover:bg-red-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Cancel</button>
       <button class='w-auto bg-gray-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2' type="submit">Update</button>
-
+      
     </div>
 
     </form>
