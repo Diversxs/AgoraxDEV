@@ -12,8 +12,6 @@ class Events extends Model
         'description' => 'required',
         'picture',
         'date' => 'required',
-        
-       
     ];
 
     protected $fillable = ['capacity', 'isFavorite', 'title', 'description', 'date'];
@@ -21,7 +19,7 @@ class Events extends Model
 
     use HasFactory;
 
-    public function BookedInUsers(){
+    public function bookedInUsers(){
         return $this->belongsToMany(User::class,'events_user');
     }
 }
