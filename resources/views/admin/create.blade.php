@@ -42,7 +42,10 @@
       </div>
       <div class="grid grid-cols-1 mt-5 mx-7">
             <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Highlight Event</label>
-            <input type="checkbox" name="isFavorite" class="switch-input" value="{{ $newEvent->isFavorite }}"/>
+     
+              <input type="checkbox" name="isFavorite" value="1"/>
+
+
           </div>
       <div class="grid grid-cols-1 mt-5 mx-7">
         <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold mb-1">Upload Photo</label>

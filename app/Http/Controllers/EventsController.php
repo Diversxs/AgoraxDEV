@@ -50,7 +50,6 @@ class EventsController extends Controller
 
     public function store(Request $request)
     {
-
         request()->validate(Events::$rules);
 
         Events::create($request->all());
