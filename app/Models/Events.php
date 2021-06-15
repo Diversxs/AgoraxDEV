@@ -12,6 +12,7 @@ class Events extends Model
         'description' => 'required',
         'picture',
         'date' => 'required',
+        
        
     ];
 
