@@ -43,18 +43,32 @@ class EventsController extends Controller
 
     public function create()
     {
-        $newEvent = new Events();
+       $newEvent = new Events();
         return view('admin.create', compact('newEvent'));
     }
 
 
     public function store(Request $request)
-    {
+    {        
         request()->validate(Events::$rules);
 
-        Events::create($request->all());
+        if($request->isFavorite == 'true'){
+            $request->isFavorite = '1';
+        }
+        if($request->isFavorite == 'false'){
+            $request->isFavorite = '0';
+        }
+        
 
-
+        Events::create([
+            'title'=> $request->title,
+            'description'=> $request->description,
+            'capacity'=> $request->capacity,
+            'isFavorite'=> $request->isFavorite,
+            'picture'=> $request->picture,
+            'date'=> $request->date,
+        ]);
+       
         return redirect(route('logged_index'));
     }
 
