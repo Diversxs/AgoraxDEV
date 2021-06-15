@@ -25,7 +25,7 @@ class EventsController extends Controller
 
             return view('user.index', ['events' => $events]);
 
-            
+
 
     }
 
@@ -50,8 +50,9 @@ class EventsController extends Controller
 
     public function store(Request $request)
     {
-       
-        
+
+        $request->isFavorite = $request->has('isFavorite');
+
         request()->validate(Events::$rules);
 
         Events::create($request->all());
@@ -91,14 +92,16 @@ class EventsController extends Controller
 
         $user=Auth::user();
         $event = Events::find($id);
+        $event->BookedInUsers()->attach($user);
+        return redirect()->route('logged_index')
+            ->with('success', 'Event booked');
 
-        $user->eventsBookedIn()->attach($event->id);
     }
     public function CancelbookedEvent($id){
 
         $user=Auth::user();
         $event = Events::find($id);
-        $user->eventsBookedIn()->detach($event->id);
+        $event->BookedInUsers()->attach($user);
     }
 
     public function userEvents(){
