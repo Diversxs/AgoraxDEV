@@ -82,9 +82,18 @@ class EventsController extends Controller
 
     public function update(Request $request, Events $event)
     {
-        request()->validate(Events::$rules);
-
-        $event->update($request->all());
+        request()->validate(Events::$rules); 
+     
+        
+        $event->update([
+            'title'=> $request->title,
+            'description'=> $request->description,
+            'capacity'=> $request->capacity,
+            'isFavorite'=> $request->isFavorite='false',
+            'picture'=> $request->picture,
+            'date'=> $request->date,
+        ]);
+       
 
         return redirect()->route('logged_index')
             ->with('success', 'Event updated successfully');

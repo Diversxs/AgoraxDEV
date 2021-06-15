@@ -46,7 +46,7 @@
 
     <div class="grid grid-cols-1 mt-5 mx-7">
       <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Highlight Event</label>
-      <input type="checkbox" value="Highlight Event"></input>
+      <input type="radio" name='isFavorite' value="false"/>
     </div>
 
     <div class="grid grid-cols-1 mt-5 mx-7">
