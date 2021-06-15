@@ -14,7 +14,7 @@ class Events extends Model
         'date' => 'required',
     ];
 
-    protected $fillable = ['capacity', 'isFavorite', 'title', 'description', 'date'];
+    protected $fillable = ['capacity', 'isFavorite'=>'boolean', 'title', 'description', 'date'];
 
 
     use HasFactory;
