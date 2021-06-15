@@ -58,7 +58,6 @@ class EventsController extends Controller
 
         $request->isFavorite = $request->has('isFavorite');
 
-
         return redirect(route('logged_index'));
     }
 

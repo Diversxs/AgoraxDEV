@@ -12,8 +12,7 @@ class Events extends Model
         'description' => 'required',
         'picture',
         'date' => 'required',
-        
-       
+               
     ];
 
     protected $fillable = ['capacity', 'isFavorite'=>'boolean', 'title', 'description', 'date'];
