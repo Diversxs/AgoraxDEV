@@ -31,9 +31,11 @@ class EventsController extends Controller
     {
         $event = Events::find($id);
         if (Auth::user()->isAdmin){
-            return view('admin.show', ['events' => $event]);
+            return view('admin.show', compact('event'));
         }
-            return view('user.show', ['events' => $event]);
+
+        return view('user.show', compact('event'));
+
     }
 
     public function create()
@@ -66,7 +68,7 @@ class EventsController extends Controller
             'picture'=> $request->picture,
             'date'=> $request->date,
         ]);
-       
+
         return redirect(route('logged_index'));
     }
 
