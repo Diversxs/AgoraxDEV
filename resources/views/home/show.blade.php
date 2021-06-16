@@ -28,7 +28,7 @@
 
 
 
-                            <a class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" ><button  type="submit">book</button></a>
+                            <a class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" method="GET" href="{{ route('subscribe', $event->id)}}" ><button  type="submit">book</button></a>
 
 
 
