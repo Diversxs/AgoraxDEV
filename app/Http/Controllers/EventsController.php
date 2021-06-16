@@ -33,11 +33,10 @@ class EventsController extends Controller
     {
         $event = Events::find($id);
         if (Auth::user()->isAdmin){
-            return view('admin.show', ['events' => $event]);
+            return view('admin.show', compact('event'));
         }
 
-            return view('user.show', ['events' => $event]);
-
+        return view('user.show', compact('event'));
 
     }
 
@@ -49,7 +48,7 @@ class EventsController extends Controller
 
 
     public function store(Request $request)
-    {        
+    {
         request()->validate(Events::$rules);
 
         if($request->isFavorite == 'true'){
@@ -58,7 +57,6 @@ class EventsController extends Controller
         if($request->isFavorite == 'false'){
             $request->isFavorite = '0';
         }
-        
 
         Events::create([
             'title'=> $request->title,
@@ -68,7 +66,7 @@ class EventsController extends Controller
             'picture'=> $request->picture,
             'date'=> $request->date,
         ]);
-       
+
         return redirect(route('logged_index'));
     }
 
