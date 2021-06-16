@@ -25,8 +25,6 @@ class EventsController extends Controller
 
             return view('user.index', ['events' => $events]);
 
-
-
     }
 
     public function show($id)
@@ -48,24 +46,46 @@ class EventsController extends Controller
 
 
     public function store(Request $request)
-    {
+    {        
+
+        //dd($request);
+        
         request()->validate(Events::$rules);
 
-        if($request->isFavorite == 'true'){
-            $request->isFavorite = '1';
-        }
-        if($request->isFavorite == 'false'){
-            $request->isFavorite = '0';
+        if($request->isFavorite == "true"){
+            $request->isFavorite = "1";
         }
 
-        Events::create([
-            'title'=> $request->title,
-            'description'=> $request->description,
-            'capacity'=> $request->capacity,
-            'isFavorite'=> $request->isFavorite,
-            'picture'=> $request->picture,
-            'date'=> $request->date,
-        ]);
+        if($request->isFavorite == "false"){
+            $request->isFavorite = "0";
+        }
+       
+        // Events::create([
+        //     'title'=> $request->title,
+        //     'description'=> $request->description,
+        //     'capacity'=> $request->capacity,
+        //     'isFavorite'=> $request->isFavorite,
+        //     // 'picture'=> $request->picture,
+        //     'date'=> $request->date,
+        // ]);
+
+        $event = new Events;
+        $event->title = $request->input('title');
+        $event->description = $request->input('description');
+        $event->capacity = $request->input('capacity');
+        $event->date = $request->input('date');
+        $event->isFavorite = $request->has('isFavorite');
+
+
+        if($request->hasfile('picture')) {
+            $file = $request->file('picture');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time(). '.' .$extention;
+            $file->move('uploads/events/', $filename);
+            $event->picture= $filename;
+        }
+
+        $event->save();
 
         return redirect(route('logged_index'));
     }
@@ -82,7 +102,22 @@ class EventsController extends Controller
     {
         request()->validate(Events::$rules);
 
-        $event->update($request->all());
+        if($request->isFavorite == "true"){
+            $request->isFavorite = "1";
+        }
+
+        if($request->isFavorite == "false"){
+            $request->isFavorite = "0";
+        }
+        
+        $event->update([
+            'title'=> $request->title,
+            'description'=> $request->description,
+            'capacity'=> $request->capacity,
+            'isFavorite'=> $request->isFavorite,
+            'picture'=> $request->picture,
+            'date'=> $request->date,
+        ]);
 
         return redirect()->route('logged_index')
             ->with('success', 'Event updated successfully');
@@ -109,7 +144,9 @@ class EventsController extends Controller
 
         $user=Auth::user();
         $event = Events::find($id);
-        $event->BookedInUsers()->attach($user);
+        $event->BookedInUsers()->detach($user);
+        return redirect()->route('userEvents')
+        ->with('success', 'Event Unbooked');
     }
 
     public function userEvents(){
