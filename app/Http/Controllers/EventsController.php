@@ -25,8 +25,6 @@ class EventsController extends Controller
 
             return view('user.index', ['events' => $events]);
 
-
-
     }
 
     public function show($id)
@@ -35,10 +33,7 @@ class EventsController extends Controller
         if (Auth::user()->isAdmin){
             return view('admin.show', ['events' => $event]);
         }
-
             return view('user.show', ['events' => $event]);
-
-
     }
 
     public function create()
@@ -50,16 +45,19 @@ class EventsController extends Controller
 
     public function store(Request $request)
     {        
+
+        //dd($request);
+        
         request()->validate(Events::$rules);
 
-        if($request->isFavorite == 'true'){
-            $request->isFavorite = '1';
+        if($request->isFavorite == "true"){
+            $request->isFavorite = "1";
         }
-        if($request->isFavorite == 'false'){
-            $request->isFavorite = '0';
-        }
-        
 
+        if($request->isFavorite == "false"){
+            $request->isFavorite = "0";
+        }
+       
         Events::create([
             'title'=> $request->title,
             'description'=> $request->description,
@@ -82,18 +80,24 @@ class EventsController extends Controller
 
     public function update(Request $request, Events $event)
     {
-        request()->validate(Events::$rules); 
-     
+        request()->validate(Events::$rules);
+
+        if($request->isFavorite == "true"){
+            $request->isFavorite = "1";
+        }
+
+        if($request->isFavorite == "false"){
+            $request->isFavorite = "0";
+        }
         
         $event->update([
             'title'=> $request->title,
             'description'=> $request->description,
             'capacity'=> $request->capacity,
-            'isFavorite'=> $request->isFavorite='false',
+            'isFavorite'=> $request->isFavorite,
             'picture'=> $request->picture,
             'date'=> $request->date,
         ]);
-       
 
         return redirect()->route('logged_index')
             ->with('success', 'Event updated successfully');
