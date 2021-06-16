@@ -109,7 +109,9 @@ class EventsController extends Controller
 
         $user=Auth::user();
         $event = Events::find($id);
-        $event->BookedInUsers()->attach($user);
+        $event->BookedInUsers()->detach($user);
+        return redirect()->route('userEvents')
+        ->with('success', 'Event Unbooked');
     }
 
     public function userEvents(){
