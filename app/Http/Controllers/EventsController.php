@@ -49,7 +49,11 @@ class EventsController extends Controller
 
 
     public function store(Request $request)
+
+
     {        
+
+        
         request()->validate(Events::$rules);
 
         if($request->isFavorite == 'true'){
@@ -82,9 +86,25 @@ class EventsController extends Controller
 
     public function update(Request $request, Events $event)
     {
+
+        
         request()->validate(Events::$rules);
 
-        $event->update($request->all());
+        if($request->isFavorite == 'true'){
+            $request->isFavorite = '1';
+        }
+        if($request->isFavorite == 'false'){
+            $request->isFavorite = '0';
+        }
+
+        $event->update([
+            'title'=> $request->title,
+            'description'=> $request->description,
+            'capacity'=> $request->capacity,
+            'isFavorite'=> $request->isFavorite,
+            'picture'=> $request->picture,
+            'date'=> $request->date,
+        ]);
 
         return redirect()->route('logged_index')
             ->with('success', 'Event updated successfully');
@@ -118,6 +138,10 @@ class EventsController extends Controller
         $user= Auth::user();
         $events = $user->eventsBookedIn;
         return view('user.bookedEvents', ['events_user' => $events]);
+    }
+
+    public function passevent(){
+        
     }
 
 }
