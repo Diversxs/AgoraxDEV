@@ -25,19 +25,16 @@ class EventsController extends Controller
 
             return view('user.index', ['events' => $events]);
 
-
-
     }
 
     public function show($id)
     {
         $event = Events::find($id);
         if (Auth::user()->isAdmin){
-            return view('admin.show', ['events' => $event]);
+            return view('admin.show', compact('event'));
         }
 
-            return view('user.show', ['events' => $event]);
-
+        return view('user.show', compact('event'));
 
     }
 
@@ -53,17 +50,18 @@ class EventsController extends Controller
 
     {        
 
+        //dd($request);
         
         request()->validate(Events::$rules);
 
-        if($request->isFavorite == 'true'){
-            $request->isFavorite = '1';
+        if($request->isFavorite == "true"){
+            $request->isFavorite = "1";
         }
-        if($request->isFavorite == 'false'){
-            $request->isFavorite = '0';
-        }
-        
 
+        if($request->isFavorite == "false"){
+            $request->isFavorite = "0";
+        }
+       
         Events::create([
             'title'=> $request->title,
             'description'=> $request->description,
@@ -72,7 +70,7 @@ class EventsController extends Controller
             'picture'=> $request->picture,
             'date'=> $request->date,
         ]);
-       
+
         return redirect(route('logged_index'));
     }
 
@@ -90,13 +88,14 @@ class EventsController extends Controller
         
         request()->validate(Events::$rules);
 
-        if($request->isFavorite == 'true'){
-            $request->isFavorite = '1';
-        }
-        if($request->isFavorite == 'false'){
-            $request->isFavorite = '0';
+        if($request->isFavorite == "true"){
+            $request->isFavorite = "1";
         }
 
+        if($request->isFavorite == "false"){
+            $request->isFavorite = "0";
+        }
+        
         $event->update([
             'title'=> $request->title,
             'description'=> $request->description,
@@ -131,7 +130,9 @@ class EventsController extends Controller
 
         $user=Auth::user();
         $event = Events::find($id);
-        $event->BookedInUsers()->attach($user);
+        $event->BookedInUsers()->detach($user);
+        return redirect()->route('userEvents')
+        ->with('success', 'Event Unbooked');
     }
 
     public function userEvents(){
@@ -141,7 +142,7 @@ class EventsController extends Controller
     }
 
     public function passevent(){
-        
+
     }
 
 }

@@ -42,9 +42,14 @@
       </div>
       <div class="grid grid-cols-1 mt-5 mx-7">
             <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Highlight Event</label>
-
-            <input type="radio" name="isFavorite" value="true" >
-            <input type="hidden" name="isFavorite" value="false" >
+            <label class="inline-flex items-center mt-2">
+              <input type="radio" class="form-radio text-red-600" name="isFavorite" value="true" />
+              <span class="ml-2 text-gray-500 text-light">Favorite event</span>
+            </label>  
+            <label class="inline-flex items-center">
+              <input type="radio" class="form-radio text-gray-500" name="isFavorite" value="false" />
+              <span class="ml-2 text-gray-500 text-light">Not Favorite event</span>
+            </label>
 
           </div>
       <div class="grid grid-cols-1 mt-5 mx-7">
@@ -66,6 +71,7 @@
       <div class="flex items-center justify-center my-5">
 
         <div class='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
+          
           <button class='w-auto bg-red-500 hover:bg-red-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Cancel</button>
           <button class='w-auto bg-gray-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2' type="submit">Create</button>
 
