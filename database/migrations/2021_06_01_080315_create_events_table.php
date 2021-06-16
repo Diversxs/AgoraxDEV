@@ -19,7 +19,7 @@ class CreateEventsTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->integer('capacity')->default(30);
-            $table->boolean('isFavorite')->default(false);
+            $table->boolean('isFavorite')->default(0);
             $table->string('picture')->nullable();
             $table->dateTime('date');
             $table->timestamps();
