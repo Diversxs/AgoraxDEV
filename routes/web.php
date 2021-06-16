@@ -35,6 +35,7 @@ Route::patch('/events/{event}/update', [EventsController::class, "update"])->nam
 
 
 
+
 Route::get('/', [HomeController::class, "index"])->name('home');
 Route::get('/show/{id}', [HomeController::class, "show"])->name('show_event');
 
