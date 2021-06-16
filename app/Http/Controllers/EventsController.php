@@ -18,12 +18,14 @@ class EventsController extends Controller
 
     public function index()
     {
-        $events = Events::paginate();
+        $favEvents = Events::all()->isFavorite;
+        $events = Events::paginate()->sortBy('date');
+
         if (Auth::user()->isAdmin){
             return view('admin.index', ['events' => $events]);
         }
 
-            return view('user.index', ['events' => $events]);
+         return view('user.index', ['events' => $events], ['events' => $favEvents] );
 
     }
 
@@ -46,10 +48,10 @@ class EventsController extends Controller
 
 
     public function store(Request $request)
-    {        
+    {
 
         //dd($request);
-        
+
         request()->validate(Events::$rules);
 
         if($request->isFavorite == "true"){
@@ -59,7 +61,7 @@ class EventsController extends Controller
         if($request->isFavorite == "false"){
             $request->isFavorite = "0";
         }
-       
+
         Events::create([
             'title'=> $request->title,
             'description'=> $request->description,
@@ -91,7 +93,7 @@ class EventsController extends Controller
         if($request->isFavorite == "false"){
             $request->isFavorite = "0";
         }
-        
+
         $event->update([
             'title'=> $request->title,
             'description'=> $request->description,
