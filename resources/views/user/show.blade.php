@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="container flex items-center justify-center">
 <div class=" rounded overflow-hidden shadow-lg flex flex-col items-center m-5">
     <img class="w-48" src="{{$event->picture}}" alt="Sunset in the mountains">
@@ -18,14 +19,16 @@
             {{ $event->date }}
         </div>
         <div class="flex-auto flex space-x-3 m-5 justify-center">
-            <button class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" type="submit">Book this event</button>
+            <button class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" type="submit">Book this </button>
         </div>
     </div>
-    <!-- <div class="px-6 pt-4 pb-2">
-    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-  </div> -->
+    
+
+  <div>
+    <div class="relative">
+        <div class="absolute inset-0 w-screen h-screen bg-pink-500 text-white flex items-center justify-center text-5xl">Hello</div>
+    </div>
+</div>
 </div>
 
 @endsection
