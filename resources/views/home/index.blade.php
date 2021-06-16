@@ -30,6 +30,8 @@
     </style>
     @endforeach
 
+  
+
 
     <div class="flex flex-col items-center m-8  ">
 
@@ -42,6 +44,8 @@
             </div>
 
             @endforeach
+
+            
             </div>
           
 
@@ -55,7 +59,12 @@
         </div>
     </div>
 
+    <a  href="{{route('passedEvents')}}"><button class="ml-8 my-8 bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" type="submit">past events</button></a>
+
     @foreach ($events as $event)
+
+
+    
 
         <a href="{{ route('show_event', $event->id) }}">
             <div class="container flex items-center justify-center">
