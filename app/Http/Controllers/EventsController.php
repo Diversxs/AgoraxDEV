@@ -24,7 +24,6 @@ class EventsController extends Controller
         }
 
             return view('user.index', ['events' => $events]);
-
     }
 
     public function show($id)
@@ -60,14 +59,32 @@ class EventsController extends Controller
             $request->isFavorite = "0";
         }
        
-        Events::create([
-            'title'=> $request->title,
-            'description'=> $request->description,
-            'capacity'=> $request->capacity,
-            'isFavorite'=> $request->isFavorite,
-            'picture'=> $request->picture,
-            'date'=> $request->date,
-        ]);
+        // Events::create([
+        //     'title'=> $request->title,
+        //     'description'=> $request->description,
+        //     'capacity'=> $request->capacity,
+        //     'isFavorite'=> $request->isFavorite,
+        //     // 'picture'=> $request->picture,
+        //     'date'=> $request->date,
+        // ]);
+
+        $event = new Events;
+        $event->title = $request->input('title');
+        $event->description = $request->input('description');
+        $event->capacity = $request->input('capacity');
+        $event->date = $request->input('date');
+        $event->isFavorite = $request->has('isFavorite');
+
+
+        if($request->hasfile('picture')) {
+            $file = $request->file('picture');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time(). '.' .$extention;
+            $file->move('uploads/events/', $filename);
+            $event->picture= $filename;
+        }
+
+        $event->save();
 
         return redirect(route('logged_index'));
     }
@@ -136,5 +153,7 @@ class EventsController extends Controller
         $events = $user->eventsBookedIn;
         return view('user.bookedEvents', ['events_user' => $events]);
     }
+    
+
 
 }

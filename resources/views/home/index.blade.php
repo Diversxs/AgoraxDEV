@@ -36,14 +36,14 @@
         <div class="w-11/12 bg-white rounded overflow-x-hidden flex snap-x b" style="height: 40vh;">
             @foreach ($events as $event)
             <div class="snap-start w-full h-full flex items-center justify-center text-white text-4xl font-bold flex-shrink-0 "
-                id="slide-{{ $event->id }}"> 
+                id="slide-{{ $event->id }}">
                  <h2 id="hola">{{ $event->title }}</h2>
                 <img id="adios" class="w-50 " src="{{$event->picture}}" >
             </div>
 
             @endforeach
             </div>
-          
+
 
         </div>
 
@@ -60,7 +60,7 @@
         <a href="{{ route('show_event', $event->id) }}">
             <div class="container flex items-center justify-center">
                 <div class="overflow-hidden shadow-lg flex flex-col md:flex-row items-center m-5 rounded-3xl">
-                    <img class="w-100" src="{{ $event->picture }}" alt="Sunset in the mountains">
+                    <img class="w-100" src="{{asset('/uploads/events/' .$event->picture ) }}" style="width:150px;" alt="Sunset in the mountains">
                     <div class="px-6 py-4">
                         <div class="text-blue-900 flex-auto text-xl font-bold mb-2">
                             <h1>{{ $event->title }}</h1>
@@ -89,7 +89,7 @@
 
 
 
-                                <a class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full"><button
+                                <a class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" method="GET" href="{{ route('subscribe', $event->id)}}"><button
                                         type="submit">book</button></a>
 
 
@@ -108,6 +108,9 @@
             </div>
         </a>
     @endforeach
-
+    @if (session('status'))
+    <h6 class="alert">Hola</h6>
+  
+  @endif
 
 @endsection

@@ -9,7 +9,7 @@
       </div>
     </div>
 
-    <form action="{{ route('admin_store') }}" method="POST">
+    <form action="{{ route('admin_store') }}" method="POST" enctype="multipart/form-data">
       @csrf
       <div class="flex justify-center">
         <div class="flex">
@@ -63,7 +63,7 @@
 
               <p class='lowercase text-sm text-gray-400 group-hover:text-red-600 pt-1 tracking-wider'>Select a photo</p>
             </div>
-            <input type='file' class="hidden" />
+            <input type='file' name="picture" class="hidden" />
           </label>
         </div>
       </div>
@@ -71,8 +71,9 @@
       <div class="flex items-center justify-center my-5">
 
         <div class='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
-          
-          <button class='w-auto bg-red-500 hover:bg-red-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Cancel</button>
+          <a method="Post " href="{{route('logged_index')}}">
+            <button class='w-auto bg-red-500 hover:bg-red-700 rounded-lg shadow-xl font-medium text-white px-4 py-2' type="button">Cancel</button>
+          </a>
           <button class='w-auto bg-gray-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2' type="submit">Create</button>
 
         </div>
@@ -81,5 +82,6 @@
   </div>
 
 </div>
+
 
 @endsection
