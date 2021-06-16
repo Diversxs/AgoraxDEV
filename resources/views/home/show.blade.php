@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<a href="{{route('show_event', $event->id)}}">
+
     <div class="container flex items-center justify-center">
         <div class="overflow-hidden shadow-lg flex flex-col md:flex-row items-center m-5 rounded-3xl">
             <img class="w-100" src="{{$event->picture}}" alt="Sunset in the mountains">
@@ -26,12 +26,12 @@
                             </svg>
                             <p class="text-lg font-semibold text-red-600">{{ $event->date }}</p>
 
-                           
-                            
-                            <a class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" ><button  type="submit">book</button></a> 
-                            
-                           
-         
+
+
+                            <a class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" ><button  type="submit">book</button></a>
+
+
+
                         </div>
                     </div>
 
@@ -39,34 +39,9 @@
                 </div>
             </div>
         </div>
-       
 
 
-   <!-- <div class="container flex items-center justify-center">
-<div class=" rounded overflow-hidden shadow-lg flex flex-col items-center m-5">
-    <img class="w-48" src="{{$event->picture}}" alt="Sunset in the mountains">
-    <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">
-            <h1>{{ $event->title }}</h1>
-        </div>
-        <p class="text-gray-700 text-base">
-            {{ $event->description }}
-        </p>
-        <p class="text-lg text-black-500">
-            Assistants: {{ $event->capacity}}
-        </p>
-        <div class="text-xl font-semibold text-gray-500">
-            {{ $event->date }}
-        </div>
-        <div class="flex-auto flex space-x-3 m-5 justify-center">
-            <button class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" type="submit">Book this event</button>
-        </div>
-    </div> -->
-    <!-- <div class="px-6 pt-4 pb-2">
-    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-  </div> -->
+
 </div>
 
 @endsection
