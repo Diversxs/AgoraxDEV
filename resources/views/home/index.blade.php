@@ -38,7 +38,7 @@
             <div class="snap-start w-full h-full flex items-center justify-center text-white text-4xl font-bold flex-shrink-0 "
                 id="slide-{{ $event->id }}">
                  <h2 id="hola">{{ $event->title }}</h2>
-                <img id="adios" class="w-50 " src="{{$event->picture}}" >
+                <img id="adios" class="w-50 " src="{{asset('/uploads/events/' .$event->picture ) }}" >
             </div>
 
             @endforeach

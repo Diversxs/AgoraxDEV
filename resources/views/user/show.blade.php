@@ -13,9 +13,14 @@
                 </div>
 <div class="container flex items-center justify-center">
     <div class="overflow-hidden shadow-lg flex flex-col md:flex-row items-center m-5 rounded-3xl">
-        <img class="w-full h-1/2" src="{{$event->picture}}"  alt="Sunset in the mountains">
-            <div class="mr-10 ml-10 mt-0"> 
-              
+        
+        <img class="w-full h-1/2" src="{{asset('/uploads/events/' .$event->picture ) }}" alt="Sunset in the mountains">
+            <div class="mr-10 ml-10 mt-0">
+                
+
+
+        
+
                 <p class="pt-8 mb-14 text-gray-700 text-center md:text-center">
                     {{ $event->description }}
                 </p>
@@ -33,6 +38,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                         <p class="text-lg font-semibold text-red-600">{{ $event->date }}</p>
+
                     </div>
                     <a class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" method="GET" href="{{ route('subscribe', $event->id)}}" ><button  type="submit">book me</button></a>
 
