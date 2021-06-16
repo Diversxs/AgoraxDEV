@@ -71,8 +71,9 @@
       <div class="flex items-center justify-center my-5">
 
         <div class='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
-          
-          <button class='w-auto bg-red-500 hover:bg-red-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Cancel</button>
+          <a method="Post " href="{{route('logged_index')}}">
+            <button class='w-auto bg-red-500 hover:bg-red-700 rounded-lg shadow-xl font-medium text-white px-4 py-2' type="button">Cancel</button>
+          </a>
           <button class='w-auto bg-gray-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2' type="submit">Create</button>
 
         </div>

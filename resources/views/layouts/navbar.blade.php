@@ -7,7 +7,14 @@
       <div class="flex flex-row items-center justify-between p-4">
 
         <div class="logo">
-        <img src="https://i.ibb.co/CbHhPbW/Logo-1.png" alt="Logo-1" style="width: 80px;" />
+          @auth
+            <a href="{{route('logged_index')}}">
+          @endauth
+              @guest
+              <a href="{{route('home')}}">
+              @endguest
+            <img src="https://i.ibb.co/CbHhPbW/Logo-1.png" alt="Logo-1" style="width: 80px;" />
+          </a>
       </div>
         <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
           <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">

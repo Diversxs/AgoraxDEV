@@ -18,14 +18,14 @@ class EventsController extends Controller
 
     public function index()
     {
-        $favEvents = Events::all()->isFavorite;
+        $user= Auth::user();
         $events = Events::paginate()->sortBy('date');
 
         if (Auth::user()->isAdmin){
             return view('admin.index', ['events' => $events]);
         }
 
-         return view('user.index', ['events' => $events], ['events' => $favEvents] );
+         return view('user.index', compact('events','user') );
 
     }
 
@@ -138,5 +138,6 @@ class EventsController extends Controller
         $events = $user->eventsBookedIn;
         return view('user.bookedEvents', ['events_user' => $events]);
     }
+
 
 }
