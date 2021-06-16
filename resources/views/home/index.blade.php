@@ -17,40 +17,67 @@
             scroll-snap-align: start;
         }
 
-        #hola {
-            font-size:20px;
+        #titulo {
+            font-size:35px;
             color: black;
-            margin: 10px;
+            margin: 25px;
         }
 
-        #adios {
-            width: 200px;
+        #imagen {
+            width: 80%;
+            height: 250px;
+            margin: 20px;
         }
 
+        #imagen:hover {
+            opacity: 0.8;
+            transition: 0.2s;
+        }
+
+        h3 {
+            color: black;
+            font-size: 20px;
+        }
+
+        h4 {
+            font-size: 25px;
+            color: black;
+            font-weight: bold;
+        }
+
+       
     </style>
     @endforeach
 
 
-    <div class="flex flex-col items-center m-8  ">
+    <div class="flex flex-col items-center m-2  ">
 
-        <div class="w-11/12 bg-white rounded overflow-x-hidden flex snap-x b" style="height: 40vh;">
+        <div class="w-11/12 bg-white rounded overflow-x-hidden flex snap-x b" style="height: 60vh;">
+            
             @foreach ($events as $event)
-            <div class="snap-start w-full h-full flex items-center justify-center text-white text-4xl font-bold flex-shrink-0 "
-                id="slide-{{ $event->id }}">
-                 <h2 id="hola">{{ $event->title }}</h2>
-                <img id="adios" class="w-50 " src="{{asset('/uploads/events/' .$event->picture ) }}" >
-            </div>
 
+            @if ($event -> isFavorite ) 
+            <div class="snap-start w-full h-full flex flex-col items-center justify-center text-white text-4xl font-bold flex-shrink-0 "
+                id="slide-{{ $event->id }}">
+                 <h2 id="titulo">{{ $event->title }}</h2>
+                <img id="imagen" class="w-50 " src="{{asset('/uploads/events/' .$event->picture ) }}" >
+                <h3>El próximo día {{ \Carbon\Carbon::parse($event->date)->format('d/m/Y')}}</h3>
+                <h4>¡Te esperamos!</h4>
+            </div>
+            @endif
+            
             @endforeach
             </div>
 
 
         </div>
 
-        <div class="flex mt-8 flex items-center justify-center">
+        <div class="flex flex items-center justify-center">
             @foreach ($events as $event)
+            @if ($event -> isFavorite ) 
             <a class="w-8 mr-1 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center"
-                href="#slide-{{ $event->id }}">{{ $event->id }}</a>
+                href="#slide-{{ $event->id }}"><img class="boton" src="https://cdnmodules.techneb.com/shop/17592-large/plateau-de-table-flora-rond-en-bois-stratifie-noir.jpg" style="width: 10px;" > </a>
+            @endif
             @endforeach
         </div>
     </div>
