@@ -7,8 +7,15 @@
 
 <a  href="{{route('admin_create')}}"><button class="ml-8 my-8 bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" type="submit">Create Event</button></a>
 
+<a  href="{{route('passedEvents')}}"><button class="ml-8 my-8 bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" type="submit">past events</button></a>
+
 
 @foreach ( $events as $event )
+
+@if($event->date>now())
+@endif
+
+
 <a href="{{route('logged_show', $event->id)}}">
     <div class="container flex items-center justify-center">
         <div class="overflow-hidden shadow-lg flex flex-col md:flex-row items-center m-5 rounded-3xl">

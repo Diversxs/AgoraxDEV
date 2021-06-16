@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Events;
 use App\Models\User;
+use Illuminate\Database\DBAL\TimestampType;
 use Illuminate\Http\Request;
 use  Illuminate\Support\Facades\Auth;
 
@@ -119,5 +120,16 @@ class EventsController extends Controller
         $events = $user->eventsBookedIn;
         return view('user.bookedEvents', ['events_user' => $events]);
     }
+
+    public function passedEvents()
+    {
+        $events = Events::paginate();
+        
+        return view('admin.pass', ['events' => $events]);
+
+
+
+    }
+
 
 }
