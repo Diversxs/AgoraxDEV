@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="flex h-screen bg-gray-200 items-center justify-center  ">
-  <div class="grid bg-white rounded-lg shadow-xl w-11/12 md:w-9/12 lg:w-1/2">
+<div class="flex h-screen items-center justify-center  ">
+  <div class="grid bg-white rounded-lg shadow-2xl w-11/12 md:w-9/12 lg:w-1/2">
     <div class="flex justify-center py-4">
       <div class="  ">
         <img src="https://i.ibb.co/CbHhPbW/Logo-1.png" alt="Logo-1" style="width: 80px;" />     
