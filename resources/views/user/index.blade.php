@@ -77,14 +77,16 @@
                             </svg>
                             <p class="text-lg font-semibold text-red-600">{{ $event->date }}</p>
 
-                            @if($event->isSubcribed = false)
+                            @if($event->isSubcribed($user) === false)
                             <a class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" method="GET" href="{{ route('subscribe', $event->id)}}"><button  type="submit">book</button></a>
                             @endif
 
-
-                            @if($event->isSubcribed = true)
-                                <h1>desuscribir</h1>
+                            @if($event->isSubcribed($user) === true)
+                            <a class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" method="GET" href="{{ route('unSubscribe', $event->id)}}"><button  type="submit">Cancel booking</button></a>
                             @endif
+
+
+
 
 
                         </div>

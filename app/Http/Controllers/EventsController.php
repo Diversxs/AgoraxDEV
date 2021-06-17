@@ -20,7 +20,6 @@ class EventsController extends Controller
     {
         $user= Auth::user();
         $events = Events::paginate()->sortBy('date');
-
         if (Auth::user()->isAdmin){
             return view('admin.index', ['events' => $events]);
         }
@@ -138,9 +137,8 @@ class EventsController extends Controller
             return redirect()->route('logged_index');
         }
 
+        return redirect()->route('logged_index');
 
-        return redirect()->route('logged_index')
-            ->with('success', 'Event booked');
 
     }
     public function CancelbookedEvent($id){
