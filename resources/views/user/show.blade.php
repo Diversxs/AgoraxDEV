@@ -3,6 +3,7 @@
 @section('content')
 <!-- Sneja  ready/events/show-->
 
+
 <div class="btn_home text-center md:text-left">
     <a class="" method="Post" href="{{route('logged_index')}}">
         <button class="ml-8 my-8 bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" type="submit">Home</button>
