@@ -33,7 +33,7 @@
 
 
 
-                            <a class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" href="{{ route('unsubscribe', $event->id)}}" ><button  type="submit">Cancel booking</button></a>
+                            <a class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" href="{{ route('unSubscribe', $event->id)}}" ><button  type="submit">Cancel booking</button></a>
 
 
 

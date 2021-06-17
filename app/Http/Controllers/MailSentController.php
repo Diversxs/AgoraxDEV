@@ -18,8 +18,8 @@ class MailSentController extends Controller
 
     public function store()
     {
-        $mail = new EventsSuscribed;
-        Mail::to('agalarza@hotmail.com')->send($mail);
-        return 'mensaje enviado';
+        // $mail = new EventsSuscribed;
+        // Mail::to('agalarza@hotmail.com')->send($mail);
+        // return 'mensaje enviado';
     }
 }

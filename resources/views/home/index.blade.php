@@ -1,59 +1,10 @@
+
 @extends('layouts.app')
 
 @section('content')
 
 
-
-@foreach ($events as $event)
-    <style>
-        .snap-x {
-            scroll-snap-type: x mandatory;
-
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .snap-start {
-            scroll-snap-align: start;
-        }
-
-        #hola {
-            font-size:20px;
-            color: black;
-            margin: 10px;
-        }
-
-        #adios {
-            width: 200px;
-        }
-
-    </style>
-    @endforeach
-
-
-    <div class="flex flex-col items-center m-8  ">
-
-        <div class="w-11/12 bg-white rounded overflow-x-hidden flex snap-x b" style="height: 40vh;">
-            @foreach ($events as $event)
-            <div class="snap-start w-full h-full flex items-center justify-center text-white text-4xl font-bold flex-shrink-0 "
-                id="slide-{{ $event->id }}">
-                 <h2 id="hola">{{ $event->title }}</h2>
-                <img id="adios" class="w-50 " src="{{$event->picture}}" >
-            </div>
-
-            @endforeach
-            </div>
-
-
-        </div>
-
-        <div class="flex mt-8 flex items-center justify-center">
-            @foreach ($events as $event)
-            <a class="w-8 mr-1 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center"
-                href="#slide-{{ $event->id }}">{{ $event->id }}</a>
-            @endforeach
-        </div>
-    </div>
+<x-slider :events="$events"/>
 
     @foreach ($events as $event)
 
@@ -86,7 +37,6 @@
                                         d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
                                 <p class="text-lg font-semibold text-red-600">{{ $event->date }}</p>
-
 
 
                                 <a class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" method="GET" href="{{ route('subscribe', $event->id)}}"><button

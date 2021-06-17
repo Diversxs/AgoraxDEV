@@ -26,8 +26,7 @@ use Illuminate\Auth\Events\Login;
 
 Route::get('/events/EventsBookedIn', [EventsController::class, 'userEvents'])->name('userEvents');
 Route::get('/events/subscribe/{i}', [EventsController::class, "bookEvent"])->name('subscribe');
-Route::get('/events/unsubscribe/{i}', [EventsController::class, "CancelbookedEvent"])->name('unsubscribe');
-
+Route::get('/events/unsubscribe/{i}', [EventsController::class, "CancelbookedEvent"])->name('unSubscribe');
 Route::get('/events', [EventsController::class, "index"])->name('logged_index');
 Route::get('/events/show/{id}', [EventsController::class, "show"])->name('logged_show');
 Route::get('/events/create', [EventsController::class, "create"])->name('admin_create')->middleware(IsAdmin::class);
@@ -39,8 +38,8 @@ Route::patch('/events/{event}/update', [EventsController::class, "update"])->nam
 Route::get('/', [HomeController::class, "index"])->name('home');
 Route::get('/show/{id}', [HomeController::class, "show"])->name('show_event');
 
-Route::get('subscribedMail', [MailSentController::class, 'index'])->name('subscribedMail.index');
-Route::post('subscribedMail', [MailSentController::class, 'store'])->name('subscribedMail.store');
+Route::get('subscribedMail', [MailSentController::class, 'index'])->name('subscribedMail_index');
+Route::post('subscribedMail', [MailSentController::class, 'store'])->name('subscribedMail_store');
 
 
 require __DIR__ . '/auth.php';

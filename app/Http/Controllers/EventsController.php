@@ -6,6 +6,8 @@ use App\Models\Events;
 use App\Models\User;
 use Illuminate\Http\Request;
 use  Illuminate\Support\Facades\Auth;
+use App\Mail\EventsSuscribed;
+use Illuminate\Support\Facades\Mail;
 
 
 
@@ -18,12 +20,13 @@ class EventsController extends Controller
 
     public function index()
     {
-        $events = Events::paginate();
+        $user = Auth::user();
+        $events = Events::paginate()->sortBy('date');
         if (Auth::user()->isAdmin) {
             return view('admin.index', ['events' => $events]);
         }
 
-        return view('user.index', ['events' => $events]);
+        return view('user.index', compact('events', 'user'));
     }
 
     public function show($id)
@@ -58,14 +61,6 @@ class EventsController extends Controller
             $request->isFavorite = "0";
         }
 
-        // Events::create([
-        //     'title'=> $request->title,
-        //     'description'=> $request->description,
-        //     'capacity'=> $request->capacity,
-        //     'isFavorite'=> $request->isFavorite,
-        //     // 'picture'=> $request->picture,
-        //     'date'=> $request->date,
-        // ]);
 
         $event = new Events;
         $event->title = $request->input('title');
@@ -131,26 +126,37 @@ class EventsController extends Controller
 
     public function bookEvent($id)
     {
-
         $user = Auth::user();
+
+        $events = $user->eventsBookedIn;
         $event = Events::find($id);
-        $event->BookedInUsers()->attach($user);
-        return redirect()->route('logged_index')
-            ->with('success', 'Event booked');
+
+        if ($events->find($id) === null) {
+            $event->BookedInUsers()->attach($user);
+        }
+
+        $date = $event->date;
+        $userName = $user->name;
+        $mail = new EventsSuscribed($event, $date, $userName);
+        Mail::to($user->email)->send($mail);
+        return redirect()->route('subscribedMail_index');
     }
+
+
     public function CancelbookedEvent($id)
     {
 
         $user = Auth::user();
         $event = Events::find($id);
         $event->BookedInUsers()->detach($user);
-        return redirect()->route('userEvents')
+        return redirect()->route('logged_index')
             ->with('success', 'Event Unbooked');
     }
 
     public function userEvents()
     {
         $user = Auth::user();
+
         $events = $user->eventsBookedIn;
         return view('user.bookedEvents', ['events_user' => $events]);
     }
