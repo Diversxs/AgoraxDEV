@@ -61,26 +61,7 @@ class EventsController extends Controller
         if($request->isFavorite == "false"){
             $request->isFavorite = "0";
         }
-<<<<<<< HEAD
 
-        Events::create([
-            'title'=> $request->title,
-            'description'=> $request->description,
-            'capacity'=> $request->capacity,
-            'isFavorite'=> $request->isFavorite,
-            'picture'=> $request->picture,
-            'date'=> $request->date,
-        ]);
-=======
-       
-        // Events::create([
-        //     'title'=> $request->title,
-        //     'description'=> $request->description,
-        //     'capacity'=> $request->capacity,
-        //     'isFavorite'=> $request->isFavorite,
-        //     // 'picture'=> $request->picture,
-        //     'date'=> $request->date,
-        // ]);
 
         $event = new Events;
         $event->title = $request->input('title');
@@ -99,7 +80,6 @@ class EventsController extends Controller
         }
 
         $event->save();
->>>>>>> 5f399fca4a12ac79049ca742663d299960f5a7a6
 
         return redirect(route('logged_index'));
     }
@@ -147,9 +127,18 @@ class EventsController extends Controller
 
     public function bookEvent($id){
 
+
         $user=Auth::user();
+
+        $events = $user->eventsBookedIn;
         $event = Events::find($id);
-        $event->BookedInUsers()->attach($user);
+
+        if($events->find($id)===null){
+            $event->BookedInUsers()->attach($user);
+            return redirect()->route('logged_index');
+        }
+
+
         return redirect()->route('logged_index')
             ->with('success', 'Event booked');
 
@@ -165,10 +154,11 @@ class EventsController extends Controller
 
     public function userEvents(){
         $user= Auth::user();
+
         $events = $user->eventsBookedIn;
         return view('user.bookedEvents', ['events_user' => $events]);
     }
-    
+
 
 
 }
