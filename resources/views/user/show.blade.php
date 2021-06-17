@@ -13,13 +13,13 @@
                 </div>
 <div class="container flex items-center justify-center">
     <div class="overflow-hidden shadow-lg flex flex-col md:flex-row items-center m-5 rounded-3xl">
-        
+
         <img class="w-full h-1/2" src="{{asset('/uploads/events/' .$event->picture ) }}" alt="Sunset in the mountains">
             <div class="mr-10 ml-10 mt-0">
-                
 
 
-        
+
+
 
                 <p class="pt-8 mb-14 text-gray-700 text-center md:text-center">
                     {{ $event->description }}
@@ -40,8 +40,13 @@
                         <p class="text-lg font-semibold text-red-600">{{ $event->date }}</p>
 
                     </div>
-                    <a class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" method="GET" href="{{ route('subscribe', $event->id)}}" ><button  type="submit">book me</button></a>
+                    @if($event->isSubcribed($user) === false)
+                    <a class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" method="GET" href="{{ route('subscribe', $event->id)}}"><button  type="submit">book</button></a>
+                    @endif
 
+                    @if($event->isSubcribed($user) === true)
+                    <a class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" method="GET" href="{{ route('unSubscribe', $event->id)}}"><button  type="submit">Cancel booking</button></a>
+                    @endif
                 </div>
 
 
