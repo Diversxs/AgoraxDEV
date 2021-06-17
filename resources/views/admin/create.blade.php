@@ -9,7 +9,7 @@
       </div>
     </div>
 
-    <form action="{{ route('admin_store') }}" method="POST">
+    <form action="{{ route('admin_store') }}" method="POST" enctype="multipart/form-data">
       @csrf
       <div class="flex justify-center">
         <div class="flex">
@@ -63,7 +63,7 @@
 
               <p class='lowercase text-sm text-gray-400 group-hover:text-red-600 pt-1 tracking-wider'>Select a photo</p>
             </div>
-            <input type='file' class="hidden" />
+            <input type='file' name="picture" class="hidden" />
           </label>
         </div>
       </div>
@@ -82,5 +82,6 @@
   </div>
 
 </div>
+
 
 @endsection
