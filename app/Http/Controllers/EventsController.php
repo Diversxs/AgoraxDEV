@@ -20,6 +20,8 @@ class EventsController extends Controller
     {
         $user= Auth::user();
         $events = Events::paginate()->sortBy('date');
+
+
         if (Auth::user()->isAdmin){
             return view('admin.index', ['events' => $events]);
         }
