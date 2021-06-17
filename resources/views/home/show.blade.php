@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-
-    <div class="container flex items-center justify-center">
+<!-- Sneja -->
+    <div class="container flex items-center justify-center bg-grey-100">
         <div class="overflow-hidden shadow-lg flex flex-col md:flex-row items-center m-5 rounded-3xl">
             <img class="w-100" src="{{$event->picture}}" alt="Sunset in the mountains">
                 <div class="px-6 py-4">
-                    <div class="text-blue-900 flex-auto text-xl font-bold mb-2">
+                    <div class="text-red-900 flex-auto text-xl font-bold mb-2">
                         <h1>{{ $event->title }}</h1>
                     </div>
                     <p class="text-gray-700 text-base">
@@ -24,7 +24,7 @@
                         <div class="flex inline-flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
-                            <p class="text-lg font-semibold text-red-600">{{ $event->date }}</p>
+                            <p class="text-lg font-semibold text-red-600">{{ \Carbon\Carbon::parse($event->date)->format('d/m/Y')}}</p>
 
 
 

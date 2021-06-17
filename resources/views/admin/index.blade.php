@@ -5,17 +5,18 @@
 
 
 
-<a  href="{{route('admin_create')}}"><button class="ml-8 my-8 bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" type="submit">Create Event</button></a>
+<a  href="{{route('admin_create')}}"><button class="ml-8 my-8 bg-red-500 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" type="submit">Create Event</button></a>
 
 
 @foreach ( $events as $event )
 <a href="{{route('logged_show', $event->id)}}">
-    <div class="container flex items-center justify-center">
-        <div class="overflow-hidden shadow-lg flex flex-col md:flex-row items-center m-5 rounded-3xl">
-            <img class="w-100" src="{{asset('/uploads/events/' .$event->picture ) }}" style="width:150px;" alt="Sunset in the mountains">
+    <!-- /events admin -->
+    <div class="container flex items-center justify-center ">
+        <div class="ml-40 bg-blue-100 overflow-hidden shadow-lg flex flex-col md:flex-row items-center m-5 rounded-3xl">
+            <img class="w-full h-1/2 mb-10" src="{{asset('/uploads/events/' .$event->picture ) }}" style="width:150px;" alt="Sunset in the mountains">
                 <div class="px-6 py-4">
-                    <div class="text-blue-900 flex-auto text-xl font-bold mb-2">
-                        <h1>{{ $event->title }}</h1>
+                    <div class="text-blue-900 flex-auto text-2xl font-bold mb-10 ">
+                        <h1 class="items-center">{{ $event->title }}</h1>
                     </div>
                     <p class="text-gray-700 text-base">
                         {{ $event->description }}
@@ -32,7 +33,7 @@
                         <div class="flex inline-flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
-                            <p class="text-lg font-semibold text-red-600">{{ $event->date }}</p>
+                            <p class="text-lg font-semibold text-red-600">{{ \Carbon\Carbon::parse($event->date)->format('d/m/Y')}}</p>
                         </div>
                     </div>
 
@@ -51,7 +52,7 @@
                         @csrf
                         @method('DELETE')
                             <a href="{{route('admin_delete',$event->id)}}">
-                                <button class="uppercase p-3 flex items-center bg-red-600 text-blue-50 max-w-max shadow-sm hover:shadow-lg hover:bg-red-800 rounded-full w-12 h-12 ">
+                                <button class="uppercase p-3 flex items-center hover:bg-red-100 bg-red-600  text-blue-50 max-w-max shadow-sm hover:shadow-lg hover:bg-red-800 rounded-full w-12 h-12 ">
                                     <svg width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" style="transform: rotate(360deg);"><path d="M12 12h2v12h-2z" fill="currentColor"></path><path d="M18 12h2v12h-2z" fill="currentColor"></path><path d="M4 6v2h2v20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8h2V6zm4 22V8h16v20z" fill="currentColor"></path><path d="M12 2h8v2h-8z" fill="currentColor"></path>
                                     </svg>
                                 </button>
