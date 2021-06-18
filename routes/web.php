@@ -24,7 +24,7 @@ use Illuminate\Auth\Events\Login;
 
 Route::get('/events/EventsBookedIn', [EventsController::class, 'userEvents'])->name('userEvents');
 Route::get('/events/subscribe/{i}', [EventsController::class, "bookEvent"])->name('subscribe');
-Route::get('/events/unsubscribe/{i}', [EventsController::class, "CancelbookedEvent"])->name('unsubscribe');
+Route::get('/events/unsubscribe/{i}', [EventsController::class, "CancelbookedEvent"])->name('unSubscribe');
 Route::get('/events', [EventsController::class, "index"])->name('logged_index');
 Route::get('/events/show/{id}', [EventsController::class, "show"])->name('logged_show');
 Route::get('/events/create', [EventsController::class, "create"])->name('admin_create')->middleware(IsAdmin::class);
@@ -32,6 +32,7 @@ Route::get('/events/{id}/edit', [EventsController::class, "edit"])->name('admin_
 Route::delete('/events/delete/{id}', [EventsController::class, "destroy"])->name('admin_delete')->middleware(IsAdmin::class);
 Route::post('/events/store', [EventsController::class, "store"])->name('admin_store')->middleware(IsAdmin::class);
 Route::patch('/events/{event}/update', [EventsController::class, "update"])->name('admin_update')->middleware(IsAdmin::class);
+
 
 
 
