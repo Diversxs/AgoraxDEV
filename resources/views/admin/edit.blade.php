@@ -5,7 +5,7 @@
   <div class="grid bg-white rounded-lg shadow-2xl w-11/12 md:w-9/12 lg:w-1/2">
     <div class="flex justify-center py-4">
       <div class="  ">
-        <img src="https://i.ibb.co/CbHhPbW/Logo-1.png" alt="Logo-1" style="width: 80px;" />     
+        <img src="https://i.ibb.co/CbHhPbW/Logo-1.png" alt="Logo-1" style="width: 80px;" />
       </div>
     </div>
 
@@ -49,7 +49,7 @@
       <label class="inline-flex items-center mt-2">
         <input type="radio" class="form-radio text-red-600" name="isFavorite" value="true" />
         <span class="ml-2 text-gray-500 text-light">Favorite event</span>
-      </label>  
+      </label>
       <label class="inline-flex items-center">
         <input type="radio" class="form-radio text-gray-500" name="isFavorite" value="false" />
         <span class="ml-2 text-gray-500 text-light">Not Favorite event</span>
@@ -73,8 +73,9 @@
       <a method="Post " href="{{route('logged_index')}}">
         <button class='w-auto bg-red-500 hover:bg-red-700 rounded-lg shadow-xl font-medium text-white px-4 py-2' type="button">Cancel</button>
       </a>
-      <button class='w-auto bg-gray-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2' type="submit">Update</button>
-      
+      <a method="Post" href="{{ route('admin_store') }}">
+      <button class='w-auto bg-gray-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2' type="submit">Update</button></a>
+
     </div>
 
     </form>
