@@ -49,13 +49,7 @@ class EventsController extends Controller
 
 
     public function store(Request $request)
-<<<<<<< HEAD
-
-
-    {        
-=======
     {
->>>>>>> bdf7665371d129da6a741feafe84cef0d2bc70b3
 
         //dd($request);
 
@@ -167,12 +161,5 @@ class EventsController extends Controller
         return view('user.bookedEvents', ['events_user' => $events]);
     }
 
-<<<<<<< HEAD
-    public function passevent(){
-
-    }
-=======
-
->>>>>>> bdf7665371d129da6a741feafe84cef0d2bc70b3
 
 }
