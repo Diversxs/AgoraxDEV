@@ -54,10 +54,6 @@
 
 
             </div>
-<<<<<<< HEAD
-            </div>
-        </a>
-=======
         </div>
 
 
@@ -68,4 +64,3 @@
 @endif
 @endforeach
 @endsection
->>>>>>> pass_events
