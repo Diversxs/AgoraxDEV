@@ -10,8 +10,8 @@
     </a>
 </div>
 
-<div class="bg-blue-400  mb-6 p-5 text-red-900 flex-auto text-xl text-center font-bold mt-1">
-    <h1 class="order-first md:order-last">{{ $event->title }}</h1>
+<div class="p-0 mt-5 mb-0  text-blue-800 flex-auto text-2xl md:text-4xl text-center font-bold ">
+    <h1>{{ $event->title }}</h1>
 </div>
 <div class="container flex items-center justify-center md:ml-20">
     <div class="bg-blue-100 overflow-hidden shadow-lg flex flex-col md:flex-row items-center m-5 rounded-3xl">

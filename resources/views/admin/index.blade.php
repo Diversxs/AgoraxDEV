@@ -4,16 +4,14 @@
 @section('content')
 
 
-    <x-slider :events="$events" />
+<x-slider :events="$events" />
 
-    <a href="{{ route('admin_create') }}"><button
-            class="ml-8 my-8 bg-red-500 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full"
-            type="submit">Create Event</button></a>
+<a href="{{ route('admin_create') }}"><button class="ml-8 my-8 bg-red-500 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" type="submit">Create Event</button></a>
 @foreach ( $events as $event )
 <a href="{{route('logged_show', $event->id)}}">
     <!-- /events admin -->
     <div class="container flex items-center justify-center w">
-        <div class="md:ml-40 bg-yellow-100 overflow-hidden shadow-lg flex flex-col md:flex-row items-center m-5 rounded-3xl">
+        <div class="md:ml-40 bg-blue-100 overflow-hidden shadow-lg flex flex-col md:flex-row items-center m-5 rounded-3xl">
             <img class="w-full h-1/2 mb-10" src="{{asset('/uploads/events/' .$event->picture ) }}" style="width:150px;" alt="Sunset in the mountains">
             <div class="px-6 py-4">
                 <div class="text-blue-700 flex-auto text-4xl font-bold mb-10 mt-10 text-center">
@@ -68,41 +66,18 @@
                             </button>
                         </a>
                         <div class="flex justify-end mt-0">
-                            <a href="{{ route('admin_edit', $event->id) }}">
-                                <button
-                                    class="inline-flex items-center justify-center w-12 h-12 mr-2 text-indigo-100 transition-colors duration-150 bg-indigo-900 rounded-full focus:shadow-outline hover:bg-indigo-800">
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                        <path
-                                            d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z">
-                                        </path>
-                                    </svg>
-                                </button>
-                            </a>
+                        
+                           
 
-                            <form action="{{ route('admin_delete', $event->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <a href="{{ route('admin_delete', $event->id) }}">
-                                    <button
-                                        class="uppercase p-3 flex items-center hover:bg-red-100 bg-yellow-600  text-blue-50 max-w-max shadow-sm hover:shadow-lg hover:bg-red-800 rounded-full w-12 h-12 ">
-                                        <svg width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"
-                                            style="transform: rotate(360deg);">
-                                            <path d="M12 12h2v12h-2z" fill="currentColor"></path>
-                                            <path d="M18 12h2v12h-2z" fill="currentColor"></path>
-                                            <path d="M4 6v2h2v20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8h2V6zm4 22V8h16v20z"
-                                                fill="currentColor"></path>
-                                            <path d="M12 2h8v2h-8z" fill="currentColor"></path>
-                                        </svg>
-                                    </button>
-                                </a>
-                            </form>
-                        </div>
-                    </div>
+
+                    </form>
                 </div>
-                <!--butones del and edit-->
-
             </div>
         </div>
+        <!--butones del and edit-->
+
+    </div>
+    </div>
     </div>
     <!--container -->
     </div>

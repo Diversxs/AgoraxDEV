@@ -11,7 +11,6 @@
         <div class="w-64 md:w-full md:h-1/2">
             <img src="{{$event->picture}}" alt="Sunset in the mountains">
         </div>
-
         <section>
 
             <div class="mr-10 ml-10 mt-0">
@@ -46,10 +45,8 @@
             </div>
         </section>
     </div>
-
 </div>
 
 
 
-</div>
 @endsection
