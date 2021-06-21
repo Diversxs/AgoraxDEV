@@ -8,9 +8,7 @@
 
   <div class="buttons flex justify-between">
     <div class="btn_home text-center md:text-left">
-      <a class="" method="Post" href="{{route('logged_index')}}">
-        <button class="ml-8 my-8 bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" type="submit">Home</button>
-      </a>
+      
     </div>
     <a class="mr-10 text-center md:text-right" method="Post " href="{{route('userEvents')}}"><button class="ml-8 my-8 bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" type="submit">My Events</button></a>
 
@@ -27,10 +25,10 @@
       <div class="bg-blue-100 overflow-hidden shadow-3lg flex flex-col md:flex-row items-center m-5 rounded-3xl">
         <img class="w-full h-1/2" src="{{asset('/uploads/events/' .$event->picture ) }}" alt="Sunset in the mountains">
         <div class="mr-10 ml-10 mt-0">
-        <div class="mt-10 mb-2 md:mb-20 text-blue-700 flex-auto text-4xl text-center font-bold ">
+        <div class="mt-10 mb-2 md:mb-5 text-blue-700 flex-auto text-4xl text-center font-bold ">
       <h1>{{ $event->title }}</h1>
     </div>
-          <p class="pt-8 mb-14 text-gray-700 text-center md:text-center">
+          <p class="pt-8 mb-5 text-gray-700 text-center md:text-center">
             {{ $event->description }}
           </p>
 
