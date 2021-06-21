@@ -31,8 +31,7 @@
     @endforeach
 
   
-
-
+   
     <div class="flex flex-col items-center m-8  ">
 
         <div class="w-11/12 bg-white rounded overflow-x-hidden flex snap-x b" style="height: 40vh;">
@@ -44,6 +43,9 @@
             </div>
 
             @endforeach
+
+            
+<a  href="{{route('passedEvents')}}"><button class="ml-8 my-8 bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" type="submit">past events</button></a>
 
             
             </div>
@@ -62,6 +64,8 @@
     <a  href="{{route('passedEvents')}}"><button class="ml-8 my-8 bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" type="submit">past events</button></a>
 
     @foreach ($events as $event)
+
+    @if($event->date>now())
 
 
     

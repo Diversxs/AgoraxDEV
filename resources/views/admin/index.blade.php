@@ -69,7 +69,10 @@
         </div>
     </div>
     </div>
+
+
 </a>
+@endforeach
 @endforeach
 
 @endsection

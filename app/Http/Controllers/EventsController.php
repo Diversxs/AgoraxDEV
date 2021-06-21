@@ -129,12 +129,8 @@ class EventsController extends Controller
 
         return view('home.pass', ['events' => $events]);
 
-        return view('user.pass', ['events' => $events]);
-     
-
-
-
-    }
+        
+     }
 
     
 
