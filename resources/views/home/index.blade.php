@@ -65,8 +65,7 @@
 
     @foreach ($events as $event)
 
-    @if($event->date>now())
-
+   
 
     
 
@@ -120,7 +119,7 @@
             </div>
             </div>
         </a>
-    @endforeach
+     @endforeach
 
 
 @endsection

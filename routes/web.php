@@ -38,7 +38,7 @@ Route::get('/events/passed', [EventsController::class, 'passedEvents'])->name('p
 
 
 Route::get('/', [HomeController::class, "index"])->name('home');
-Route::get('/', [HomeController::class, "passedEvents"])->name('passedEvents');
+
 Route::get('/show/{id}', [HomeController::class, "show"])->name('show_event');
 
 
