@@ -97,7 +97,7 @@ class EventsController extends Controller
     public function update(Request $request, Events $event)
     {
 
-        
+
         request()->validate(Events::$rules);
 
         if ($request->isFavorite == "true") {
@@ -169,15 +169,6 @@ class EventsController extends Controller
     public function passedEvents()
     {
         $events = Events::paginate();
-        
         return view('admin.pass', ['events' => $events]);
-
-      
-
-        
-     }
-
-    
-
-
+    }
 }

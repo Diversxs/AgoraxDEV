@@ -38,11 +38,14 @@ Route::get('/events/passed', [EventsController::class, 'passedEvents'])->name('p
 
 
 Route::get('/', [HomeController::class, "index"])->name('home');
-
 Route::get('/show/{id}', [HomeController::class, "show"])->name('show_event');
+Route::get('/home/passed', [HomeController::class, 'homePassedEvents'])->name('homePassedEvents');
+
 
 Route::get('subscribedMail', [MailSentController::class, 'index'])->name('subscribedMail_index');
 Route::post('subscribedMail', [MailSentController::class, 'store'])->name('subscribedMail_store');
+
+
 
 
 require __DIR__ . '/auth.php';

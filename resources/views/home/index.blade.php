@@ -3,19 +3,14 @@
 @section('content')
 
 
-    <x-slider :events="$events" />
+<x-slider :events="$events" />
 
+<a  href="{{route('homePassedEvents')}}">
+    <button class="ml-8 my-8 bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" type="submit">Past events</button>
+</a>
 
-    <a  href="{{route('passedEvents')}}"><button class="ml-8 my-8 bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" type="submit">past events</button></a>
-
-    @foreach ($events as $event)
-
-   
-
-    
-
-        <a href="{{ route('show_event', $event->id) }}">
-
+   @foreach ($events as $event)
+   <a href="{{ route('show_event', $event->id) }}">
             <div class="container flex items-center justify-center  rounded-3xl bg-blue-100 mb-20">
                 <div class="overflow-hidden shadow-3lg flex flex-col md:flex-row items-center m-5 rounded-3xl">
                     <div class="w-64 md:w-full md:h-1/2">
@@ -30,7 +25,6 @@
                             <p class="pt-8 mb-14 text-gray-700 text-center md:text-center">
                                 {{ $event->description }}
                             </p>
-
                             <div class="mb-5 flex mt-5 justify-between items-center flex-col md:flex-row ">
 
                                 <div class="mb-5 flex inline-flex items-center ml-10">
@@ -41,8 +35,6 @@
                                             d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                                     </svg>
                                     <p class="text-md text-blue-900 ml-3">{{ $event->capacity }}</p>
-
-
                                 </div>
 
                                 <div class="mb-5 flex items-center">
@@ -59,24 +51,11 @@
                                     method="GET" href="{{ route('subscribe', $event->id) }}">
                                     <button type="submit">Join this Events</button>
                                 </a>
-
                             </div>
                         </div>
                     </section>
                 </div>
-
-            </div>
-            </div>
-            </div>
-            </div>
-
-
             </div>
         </a>
     @endforeach
-    @if (session('status'))
-        <h6 class="alert">Hola</h6>
-
-    @endif
-
 @endsection

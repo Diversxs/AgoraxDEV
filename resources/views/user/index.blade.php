@@ -6,10 +6,13 @@
 
 
 
+
+
+
   <div class="buttons flex justify-between">
-    <div class="btn_home text-center md:text-left">
-      
-    </div>
+    <a  href="{{route('passedEvents')}}">
+      <button class="ml-8 my-8 bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" type="submit">past events</button>
+    </a>
     <a class="mr-10 text-center md:text-right" method="Post " href="{{route('userEvents')}}"><button class="ml-8 my-8 bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" type="submit">My Events</button></a>
 
   </div>

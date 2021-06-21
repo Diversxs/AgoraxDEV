@@ -2,20 +2,14 @@
 
 @section('content')
 
-
-
-
-
 @foreach ($events as $event)
-    
-
 
 @if($event->date <now())
 
 <a href="{{ route('show_event', $event->id) }}">
     <div class="container flex items-center justify-center">
-        <div class="overflow-hidden shadow-lg flex flex-col md:flex-row items-center m-5 rounded-3xl">
-            <img class="w-100" src="{{ $event->picture }}" alt="Sunset in the mountains">
+        <div class="overflow-hidden shadow-lg flex flex-col md:flex-row items-center m-5 rounded-3xl bg-blue-100">
+            <img class="w-100"  src="{{asset('/uploads/events/' .$event->picture ) }}" alt="Sunset in the mountains">
             <div class="px-6 py-4">
                 <div class="text-blue-900 flex-auto text-xl font-bold mb-2">
                     <h1>{{ $event->title }}</h1>
@@ -40,25 +34,13 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
-                        <p class="text-lg font-semibold text-red-600">{{ $event->date }}</p>
-
-
-
-                      
-
+                        <p class="text-lg font-semibold text-red-600">{{ \Carbon\Carbon::parse($event->date)->format('d/m/Y')}}</p>
 
 
                     </div>
                 </div>
-
-
-
             </div>
         </div>
-
-
-
-    </div>
     </div>
 </a>
 @endif
