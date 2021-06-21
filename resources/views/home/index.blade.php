@@ -51,7 +51,7 @@
                                 </div>
                                 <a class="bg-red-400 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full"
                                     method="GET" href="{{ route('subscribe', $event->id) }}">
-                                    <button type="submit">book me</button>
+                                    <button type="submit">Join this Events</button>
                                 </a>
 
                             </div>
