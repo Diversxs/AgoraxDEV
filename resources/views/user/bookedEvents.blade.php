@@ -10,10 +10,11 @@
 <a href="{{route('logged_show', $event->id)}}">
 
     
-<div class="container flex items-center justify-center md:ml-20 rounded-3xl bg-yellow-100 mt-10 mb-20 md:h-72">
+<div class="container flex items-center justify-center rounded-3xl bg-yellow-100 mt-10 mb-20 md:h-72">
         <div class="overflow-hidden shadow-3lg flex flex-col md:flex-row items-center m-5 rounded-3xl">
             <div class="w-64 md:w-full md:h-1/2">
-                <img src="{{$event->picture}}" alt="Sunset in the mountains">
+                <img src="{{asset('/uploads/events/' .$event->picture ) }}
+" alt="Sunset in the mountains">
             </div>
 
             <section>
