@@ -1,72 +1,52 @@
 @extends('layouts.app')
 
 @section('content')
-<a href="{{route('show_event', $event->id)}}">
-    <div class="container flex items-center justify-center">
-        <div class="overflow-hidden shadow-lg flex flex-col md:flex-row items-center m-5 rounded-3xl">
-            <img class="w-100" src="{{$event->picture}}" alt="Sunset in the mountains">
-                <div class="px-6 py-4">
-                    <div class="text-blue-900 flex-auto text-xl font-bold mb-2">
-                        <h1>{{ $event->title }}</h1>
-                    </div>
-                    <p class="text-gray-700 text-base">
-                        {{ $event->description }}
-                    </p>
+<!-- Sneja -->
+<div class="p-0 mt-5 mb-0  text-blue-800 flex-auto text-2xl md:text-4xl text-center font-bold ">
+    <h1>{{ $event->title }}</h1>
+</div>
 
-                    <div class="flex mt-5 justify-between items-center">
-                        <div class="flex inline-flex items-center">
-                            <svg xmlns="<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<div class="container flex items-center justify-center  rounded-3xl bg-blue-100 mt-10 mb-20 md:h-72">
+    <div class="overflow-hidden shadow-3lg flex flex-col md:flex-row items-center m-5 rounded-3xl">
+        <div class="w-64 md:w-full md:h-1/2">
+            <img src="{{ asset('/uploads/events/' . $event->picture) }}" alt="Sunset in the mountains">
+        </div>
+        <section>
+
+            <div class="mr-10 ml-10 mt-0">
+                <p class="pt-8 mb-5 text-gray-700 text-center md:text-center">
+                    {{ $event->description }}
+                </p>
+
+                <div class="mb-5 flex mt-5 justify-between items-center flex-col md:flex-row ">
+
+                    <div class="mb-5 flex inline-flex items-center ml-10">
+
+                        <svg xmlns="<svg xmlns=" http://www.w3.org/2000/svg" class="h-6 w-6" fill="blue" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                            </svg>
+                        </svg>
+                        <p class="text-md text-blue-900 ml-3">{{ $event->capacity - count($event->bookedInUsers)}}</p>
 
-                            <p class="text-md text-blue-900 ml-3">{{ $event->capacity}}</p>
-                        </div>
-                        <div class="flex inline-flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <p class="text-lg font-semibold text-red-600">{{ $event->date }}</p>
 
-                           
-                            
-                            <a class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" ><button  type="submit">book</button></a> 
-                            
-                           
-         
-                        </div>
                     </div>
 
+                    <div class="mb-5 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="red" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+
+                        <p class="text-lg font-semibold text-red-600">{{ \Carbon\Carbon::parse($event->date)->format('d/m/Y')}}</p>
+                    </div>
+                    <a class="bg-red-400 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" method="GET" href="{{ route('subscribe', $event->id)}}">
+                        <button type="submit">book me</button>
+                    </a>
 
                 </div>
             </div>
-        </div>
-       
-
-
-   <!-- <div class="container flex items-center justify-center">
-<div class=" rounded overflow-hidden shadow-lg flex flex-col items-center m-5">
-    <img class="w-48" src="{{$event->picture}}" alt="Sunset in the mountains">
-    <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">
-            <h1>{{ $event->title }}</h1>
-        </div>
-        <p class="text-gray-700 text-base">
-            {{ $event->description }}
-        </p>
-        <p class="text-lg text-black-500">
-            Assistants: {{ $event->capacity}}
-        </p>
-        <div class="text-xl font-semibold text-gray-500">
-            {{ $event->date }}
-        </div>
-        <div class="flex-auto flex space-x-3 m-5 justify-center">
-            <button class="w-1/2 flex items-center justify-center rounded-md bg-black text-white" type="submit">Book this event</button>
-        </div>
-    </div> -->
-    <!-- <div class="px-6 pt-4 pb-2">
-    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-  </div> -->
+        </section>
+    </div>
 </div>
+
+
 
 @endsection
