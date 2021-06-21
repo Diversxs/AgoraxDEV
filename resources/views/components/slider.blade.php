@@ -111,12 +111,12 @@
                     <h2 id="titulo">{{ $event->title }}</h2>
                     <img id="imagen" class="w-50 " src="{{ asset('/uploads/events/' . $event->picture) }}">
                     <div class="container2">
-                        <h3>El próximo día {{ \Carbon\Carbon::parse($event->date)->format('d/m/Y') }} a las 19:00</h3>
-                        <a href="{{ route('show_event', $event->id) }}"><button
-                                class=" my-8 bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full"
-                                type="submit">¡Apúntate!</button></a>
+                        <h3>Next {{ \Carbon\Carbon::parse($event->date)->format('d/m/Y') }} at 19:00</h3>
+                        
                     </div>
-
+                    <a href="{{ route('show_event', $event->id) }}"><button
+                        class=" my-8 bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full"
+                        type="submit">Join the event!</button></a>
                 </div>
             @endif
 
@@ -139,5 +139,5 @@
 </div>
 
 <div class="esperamos">
-    <h4>¡Te esperamos!</h4>
+    <h4>¡Just come, future coder!</h4>
 </div>
