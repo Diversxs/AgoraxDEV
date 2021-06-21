@@ -10,7 +10,7 @@
 @foreach ( $events as $event )
 <a href="{{route('logged_show', $event->id)}}">
     <!-- /events admin -->
-    <div class="container flex items-center justify-center w">
+    <div class="container flex items-center justify-center ">
         <div class="md:ml-40 bg-blue-100 overflow-hidden shadow-lg flex flex-col md:flex-row items-center m-5 rounded-3xl">
             <img class="w-full h-1/2 mb-10" src="{{asset('/uploads/events/' .$event->picture ) }}" style="width:150px;" alt="Sunset in the mountains">
             <div class="px-6 py-4">

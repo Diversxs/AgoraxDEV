@@ -13,7 +13,7 @@
 <div class="p-0 mt-5 mb-0  text-blue-800 flex-auto text-2xl md:text-4xl text-center font-bold ">
     <h1>{{ $event->title }}</h1>
 </div>
-<div class="container flex items-center justify-center md:ml-20">
+<div class="container flex items-center justify-center ">
     <div class="bg-blue-100 overflow-hidden shadow-lg flex flex-col md:flex-row items-center m-5 rounded-3xl">
         <img class="w-full h-1/2" src="{{asset('/uploads/events/' .$event->picture ) }}" alt="Sunset in the mountains">
         <div class="mr-10 ml-10 mt-0">
