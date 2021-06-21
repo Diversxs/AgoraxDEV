@@ -64,14 +64,14 @@
   <a href="{{route('logged_show', $event->id)}}">
 
     
-    <div class="container flex items-center justify-center md:ml-20 rounded-3xl mb-20">
-      <div class="bg-blue-100 overflow-hidden shadow-3lg flex flex-col md:flex-row items-center m-5 rounded-3xl">
+    <div class="container flex items-center justify-center md:ml-20 rounded-3xl mb-20 ">
+      <div class="bg-yellow-100 overflow-hidden shadow-3lg flex flex-col md:flex-row items-center m-5 rounded-3xl w-60px">
         <img class="w-full h-1/2" src="{{$event->picture}}" alt="Sunset in the mountains">
         <div class="mr-10 ml-10 mt-0">
-        <div class="mt-10 mb-2 md:mb-20 text-blue-700 flex-auto text-4xl text-center font-bold ">
+        <div class="mt-10 mb-2 md:mb-5 text-blue-700 flex-auto text-4xl text-center font-bold ">
       <h1>{{ $event->title }}</h1>
     </div>
-          <p class="pt-8 mb-14 text-gray-700 text-center md:text-center">
+          <p class="pt-8 mb-5 text-gray-700 text-center md:text-center">
             {{ $event->description }}
           </p>
 

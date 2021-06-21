@@ -11,41 +11,40 @@
 @foreach ( $events as $event )
 <a href="{{route('logged_show', $event->id)}}">
     <!-- /events admin -->
-    <div class="container flex items-center justify-center ">
-        <div class="md:ml-40 bg-blue-100 overflow-hidden shadow-lg flex flex-col md:flex-row items-center m-5 rounded-3xl">
+    <div class="container flex items-center justify-center w">
+        <div class="md:ml-40 bg-yellow-100 overflow-hidden shadow-lg flex flex-col md:flex-row items-center m-5 rounded-3xl">
             <img class="w-full h-1/2 mb-10" src="{{asset('/uploads/events/' .$event->picture ) }}" style="width:150px;" alt="Sunset in the mountains">
             <div class="px-6 py-4">
                 <div class="text-blue-700 flex-auto text-4xl font-bold mb-10 mt-10 text-center">
                     <h1 class="items-center">{{ $event->title }}</h1>
                 </div>
-                <p class="text-gray-700 text-base">
+                <p class="text-grey-700 text-base ">
                     {{ $event->description }}
                 </p>
 
 
-
-                
+                <!--butones -->
+                <div class="flex justify-end mt-0">
                     <a href="{{route('admin_edit',$event->id)}}">
-                        <div class="flex mt-10 justify-between items-center">
-                            <div class="">
-                                <div class="flex ">
-                                    <svg xmlns="<svg xmlns=" http://www.w3.org/2000/svg" class="h-6 w-6" fill="blue" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                                    </svg>
+                        <div class="mb-5 flex inline-flex items-center ml-10">
 
-                                    <p class="text-md text-blue-900 ml-3">{{ $event->capacity}}</p>
-                                </div>
+                            <svg xmlns="<svg xmlns=" http://www.w3.org/2000/svg" class="h-6 w-6" fill="blue" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                            <p class="text-md text-blue-900 ml-3">{{ $event->capacity}}</p>
 
-                                <div class="flex mb-10">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="red" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                    <p class="text-lg font-semibold text-red-600">{{ \Carbon\Carbon::parse($event->date)->format('d/m/Y')}}</p>
-                                </div>
-                            </div>
+
+                        </div>
+
+                        <div class="mb-5 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="red" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+
+                            <p class="text-lg font-semibold text-red-600">{{ \Carbon\Carbon::parse($event->date)->format('d/m/Y')}}</p>
                         </div>
                     </a>
-                <div class="flex justify-end mt-0">
+
                     <a href="{{route('admin_edit',$event->id)}}">
                         <button class="inline-flex items-center justify-center w-12 h-12 mr-2 text-indigo-100 transition-colors duration-150 bg-indigo-900 rounded-full focus:shadow-outline hover:bg-indigo-800">
                             <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
@@ -69,9 +68,12 @@
                         </a>
                     </form>
                 </div>
+                <!--butones del and edit-->
+
             </div>
         </div>
     </div>
+    <!--container -->
     </div>
 </a>
 @endforeach
