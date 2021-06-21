@@ -3,8 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MailSentController;
 use App\Http\Middleware\IsAdmin;
 use Illuminate\Auth\Events\Login;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,11 +35,11 @@ Route::delete('/events/delete/{id}', [EventsController::class, "destroy"])->name
 Route::post('/events/store', [EventsController::class, "store"])->name('admin_store')->middleware(IsAdmin::class);
 Route::patch('/events/{event}/update', [EventsController::class, "update"])->name('admin_update')->middleware(IsAdmin::class);
 
-
-
-
-
 Route::get('/', [HomeController::class, "index"])->name('home');
 Route::get('/show/{id}', [HomeController::class, "show"])->name('show_event');
+
+Route::get('subscribedMail', [MailSentController::class, 'index'])->name('subscribedMail_index');
+Route::post('subscribedMail', [MailSentController::class, 'store'])->name('subscribedMail_store');
+
 
 require __DIR__ . '/auth.php';
