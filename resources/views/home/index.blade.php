@@ -18,7 +18,7 @@
             <div class="container w-100 lg:w-4/5 mx-auto flex flex-col">
                 <!-- card -->
                 <div v-for="card in cards"
-                    class="flex flex-col md:flex-row overflow-hiddenbg-white rounded-lg shadow-xl p-5 mt-4 mb-2 w-100 mx-2 bg-purple-500 flex items-center justify-center">
+                    class="flex flex-col md:flex-row overflow-hiddenbg-white rounded-lg shadow-xl p-5 mt-4 mb-2 w-100 mx-2 bg-green-300 flex items-center justify-center">
                     <!-- media -->
                     <div class="w-44  h-44   ">
                         <img class="inset-0 h-full w-full rounded-xl "
@@ -72,5 +72,7 @@
     @endforeach
     
     <x-ScrollUpDown />
-    
+    <x-footer />
 @endsection
+
+

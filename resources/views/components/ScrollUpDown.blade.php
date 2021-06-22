@@ -1,4 +1,4 @@
-<button onclick="topFunction()" class=" bg-blue-300 hover:bg-blue-500 text-white text-sm  " id="myBtn"
+<button onclick="topFunction()" class=" bg-green-300 hover:bg-green-500 text-white text-sm  " id="myBtn"
     title="Go to top">🡩</button>
     <style>
         #myBtn {

@@ -45,7 +45,9 @@ Route::get('/home/passed', [HomeController::class, 'homePassedEvents'])->name('h
 Route::get('subscribedMail', [MailSentController::class, 'index'])->name('subscribedMail_index');
 Route::post('subscribedMail', [MailSentController::class, 'store'])->name('subscribedMail_store');
 
-
+Route::get('/aboutUs', function () {
+    return view('/components/aboutUs');
+});
 
 
 require __DIR__ . '/auth.php';
