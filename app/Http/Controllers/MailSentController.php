@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\EventsSuscribed;
 use Illuminate\Support\Facades\Mail;
-
+use App\Models\Events;
 use Illuminate\Http\Request;
 
 class MailSentController extends Controller
