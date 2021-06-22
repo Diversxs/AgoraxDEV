@@ -77,5 +77,5 @@
               </div>
           </a>
       @endforeach
-
+      <x-ScrollUpDown />
   @endsection

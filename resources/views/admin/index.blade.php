@@ -52,7 +52,7 @@
                                     </p>
                                 </div>
                             </div>
-            
+                            
                             <div class="flex items-center">
                                 <a href="{{ route('admin_edit', $event->id) }}">
                                     <button
@@ -96,8 +96,14 @@
 
 
         </a>
+
+        
     @endforeach
+
+    <x-ScrollUpDown />
 @endsection
+
+
 
 
 

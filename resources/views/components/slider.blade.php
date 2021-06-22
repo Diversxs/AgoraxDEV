@@ -6,7 +6,7 @@
 
             @if ($event->isFavorite)
 
-                <div class="snap-start gitbg-gray-200 p-4 w-full h-auto flex flex-col items-center justify-center text-white text-4xl font-bold flex-shrink-0 "
+                <div class="snap-start p-4 w-full h-auto flex flex-col items-center justify-center text-white text-4xl font-bold flex-shrink-0 "
                     id="slide-{{ $event->id }}">
                     <div class="flex flex-row">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Estrella_amarilla.png"
@@ -37,10 +37,10 @@
 
 </div>
 
-<div class="flex flex items-center justify-center bg-gray-200">
+<div class="flex flex items-center justify-center ">
     @foreach ($events as $event)
         @if ($event->isFavorite)
-            <a class="w-8 mr-1 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center bg-gray-200 m-3"
+            <a class="w-8 mr-1 h-8  rounded-full  flex justify-center items-center  m-3"
                 href="#slide-{{ $event->id }}">
                 <div class="boton"></div>
             </a>
