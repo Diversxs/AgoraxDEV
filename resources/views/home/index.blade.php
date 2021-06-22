@@ -7,7 +7,7 @@
 
     <div class="flex justify-center">
         <a href="{{ route('homePassedEvents') }}">
-            <button class=" bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2 border rounded-full "
+            <button class=" bg-red-600 hover:bg-red-700 text-white text-sm px-4 mt-5 py-2 border rounded-full "
                 type="submit">Past events</button>
         </a>
     </div>
