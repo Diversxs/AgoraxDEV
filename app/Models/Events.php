@@ -13,6 +13,8 @@ class Events extends Model
         'description' => 'required',
         'picture',
         'date' => 'required',
+        'capacity' => 'required',
+
 
     ];
 
@@ -21,16 +23,17 @@ class Events extends Model
 
     use HasFactory;
 
-    public function bookedInUsers(){
-        return $this->belongsToMany(User::class,'events_user');
+    public function bookedInUsers()
+    {
+        return $this->belongsToMany(User::class, 'events_user');
     }
 
-    public function isSubcribed($id){
+    public function isSubcribed($id)
+    {
 
-    if($this->bookedInUsers->find($id)){
-       return true;
-     }
-       return false;
-
+        if ($this->bookedInUsers->find($id)) {
+            return true;
+        }
+        return false;
     }
 }
