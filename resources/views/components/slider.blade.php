@@ -1,3 +1,56 @@
+<div class="flex flex-col items-center   ">
+
+    <div class="w-full rounded overflow-x-hidden flex snap-x b" style="height: auto;">
+
+        @foreach ($events as $event)
+
+            @if ($event->isFavorite)
+
+                <div class="snap-start p-4 w-full h-auto flex flex-col items-center justify-center text-white text-4xl font-bold flex-shrink-0 "
+                    id="slide-{{ $event->id }}">
+                    <div class="flex flex-row">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Estrella_amarilla.png"
+                            style="width: 30px;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Estrella_amarilla.png"
+                            style="width: 30px;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Estrella_amarilla.png"
+                            style="width: 30px;">
+                    </div>
+                    <h2 id="titulo">{{ $event->title }}</h2>
+                    <div class="w-64 h-64">
+                        <img class="inset-0 h-64 w-64 rounded-xl p-3 "
+                            src="{{ asset('/uploads/events/' . $event->picture) }}" />
+                    </div>
+                    <div class="container2">
+                        <h3>Next {{ \Carbon\Carbon::parse($event->date)->format('d/m/Y') }} at 19:00</h3>
+
+                    </div>
+                    <a href="{{ route('show_event', $event->id) }}"><button
+                            class="  bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full"
+                            type="submit">Join the event!</button></a>
+                </div>
+            @endif
+
+        @endforeach
+    </div>
+
+
+</div>
+
+<div class="flex flex items-center justify-center ">
+    @foreach ($events as $event)
+        @if ($event->isFavorite)
+            <a class="w-8 mr-1 h-8  rounded-full  flex justify-center items-center  m-3"
+                href="#slide-{{ $event->id }}">
+                <div class="boton"></div>
+            </a>
+        @endif
+    @endforeach
+</div>
+</div>
+
+
+
 <style>
     .snap-x {
         scroll-snap-type: x mandatory;
@@ -14,6 +67,7 @@
         font-size: 35px;
         color: black;
         margin: 15px;
+        text-align: center;
     }
 
     #imagen {
@@ -97,47 +151,3 @@
     }
 
 </style>
-
-
-<div class="flex flex-col items-center  ">
-
-    <div class="w-11/12  bg-white rounded overflow-x-hidden flex snap-x b" style="height: auto;">
-
-        @foreach ($events as $event)
-
-            @if ($event->isFavorite)
-                <div class="snap-start p-0 w-full h-full flex flex-col items-center justify-center text-white text-4xl font-bold flex-shrink-0 "
-                    id="slide-{{ $event->id }}">
-                    <h2 id="titulo">{{ $event->title }}</h2>
-                    <img id="imagen" class="w-50 " src="{{ asset('/uploads/events/' . $event->picture) }}">
-                    <div class="container2">
-                        <h3>Next {{ \Carbon\Carbon::parse($event->date)->format('d/m/Y') }} at 19:00</h3>
-                        
-                    </div>
-                    <a href="{{ route('show_event', $event->id) }}"><button
-                        class=" my-8 bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full"
-                        type="submit">Join the event!</button></a>
-                </div>
-            @endif
-
-        @endforeach
-    </div>
-
-
-</div>
-
-<div class="flex flex items-center justify-center">
-    @foreach ($events as $event)
-        @if ($event->isFavorite)
-            <a class="w-8 mr-1 h-8 text-gray-700 rounded-full bg-white flex justify-center items-center "
-                href="#slide-{{ $event->id }}">
-                <div class="boton"></div>
-            </a>
-        @endif
-    @endforeach
-</div>
-</div>
-
-<div class="esperamos">
-    <h4>¡Just come, future coder!</h4>
-</div>

@@ -13,52 +13,55 @@
 @if($event->date <now())
 
 <a href="{{ route('show_event', $event->id) }}">
-    <div class="container flex items-center justify-center">
-        <div class="overflow-hidden shadow-lg flex flex-col md:flex-row items-center m-5 rounded-3xl">
-            <img class="w-100" src="{{ $event->picture }}" alt="Sunset in the mountains">
-            <div class="px-6 py-4">
-                <div class="text-blue-900 flex-auto text-xl font-bold mb-2">
-                    <h1>{{ $event->title }}</h1>
-                </div>
-                <p class="text-gray-700 text-base">
+    <<div class="container w-100 lg:w-4/5 mx-auto flex flex-col">
+        <!-- card -->
+        <div v-for="card in cards"
+            class="flex flex-col md:flex-row overflow-hiddenbg-white rounded-lg shadow-xl p-5 mt-4 mb-2 w-100 mx-2 bg-blue-100 flex items-center justify-center">
+            <!-- media -->
+            <div class="w-44  h-44   ">
+                <img class="inset-0 h-full w-full rounded-xl "
+                    src="{{ asset('/uploads/events/' . $event->picture) }}" />
+            </div>
+            <!-- content -->
+            <div class="w-full px-6 text-gray-800 flex flex-col justify-between ">
+                <h2 class="font-semibold text-3xl leading-tight truncate text-center sm:text-left mt-4">{{ $event->title }}</h2>
+                <p class="mt-2 text-center sm:text-left">
                     {{ $event->description }}
                 </p>
-
-                <div class="flex mt-5 justify-between items-center">
-                    <div class="flex inline-flex items-center">
-                        <svg xmlns="<svg xmlns=" http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                        </svg>
-
-                        <p class="text-md text-blue-900 ml-3">{{ $event->capacity }}</p>
+                <div class="flex flex-col sm:flex-row justify-between items-center sm:items-around ">
+                    <div class="">
+                        <div class="flex flex-row items-center mt-5  ">
+                            <svg xmlns="<svg xmlns=" http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="transparent"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                            <p class="text-lg text-gray-700 uppercase tracking-wide font-semibold ">
+                                {{ $event->capacity - count($event->bookedInUsers) }}</p>
+                        </div>
+    
+                        <div class="flex flex-row items-center mt-5 mb-5">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="transparent"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <p class="text-lg text-gray-700 uppercase tracking-wide font-semibold ">
+                                {{ \Carbon\Carbon::parse($event->date)->format('d/m/Y') }}
+                            </p>
+                        </div>
                     </div>
-                    <div class="flex inline-flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        <p class="text-lg font-semibold text-red-600">{{ $event->date }}</p>
-
-
-
-                      
-
-
-
+    
+                    <div class="flex flex-row items-center ">
+                        <a class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2 border rounded-full"
+                            method="GET" href="{{ route('subscribe', $event->id) }}">
+                            <button type="submit">Join this event</button>
+                        </a>
                     </div>
                 </div>
-
-
-
             </div>
         </div>
-
-
-
-    </div>
+        <!--/ card-->
     </div>
 </a>
 @endif

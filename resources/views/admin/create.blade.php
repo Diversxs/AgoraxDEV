@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
-    <div class="flex h-screen items-center justify-center p-0 mt-20" id="containergrande">
-        <div class="grid bg-white rounded-lg shadow-2xl w-11/12 md:w-9/12 lg:w-1/2 mt-6">
+    <div class="flex h-screen items-center justify-center p-0 mt-40 sm:mt-5 mb-40 " id="containergrande">
+        <div class="grid bg-white rounded-lg shadow-2xl w-11/12 md:w-9/12 lg:w-1/2 mt-6 mb-10">
             <div class="flex justify-center">
                 <div class="mt-8 ">
                     <img src="https://i.ibb.co/CbHhPbW/Logo-1.png" alt="Logo-1" style="width: 80px;" id="imagenLogo" />
@@ -63,8 +63,7 @@
                     @enderror
                 </div>
 
-
-                <div class="containerEventUpload">
+                <div class="containerEventUpload flex flex-col sm:flex-row justify-center items-center ">
                     <div class="grid grid-cols-1 mt-5 mx-7 mb-2">
                         <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Highlight
                             Event</label>
@@ -111,16 +110,14 @@
 
                     <div class='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
                         <a method="Post " href="{{ route('logged_index') }}">
-                            <button
-                                class='w-auto bg-red-500 hover:bg-red-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'
+                            <button class='bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full'
                                 type="button">Cancel</button>
                         </a>
-                        <button
-                            class='w-auto bg-gray-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'
+                        <button class='bg-green-600 hover:bg-green-700 text-white text-sm px-4 py-2  border rounded-full'
                             type="submit">Create</button>
 
                     </div>
-
+                </div>
             </form>
         </div>
 
