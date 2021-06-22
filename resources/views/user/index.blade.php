@@ -4,11 +4,6 @@
 
   <x-slider :events="$events" />
 
-
-
-
-
-
   <div class="buttons flex justify-between">
     <a  href="{{route('passedEvents')}}">
       <button class="ml-8 my-8 bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" type="submit">Check our past events</button>

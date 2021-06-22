@@ -108,7 +108,7 @@ class EventsController extends Controller
             $request->isFavorite = "0";
         }
 
-       
+
         $event->title = $request->input('title');
         $event->description = $request->input('description');
         $event->capacity = $request->input('capacity');
