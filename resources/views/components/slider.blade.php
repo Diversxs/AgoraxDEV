@@ -14,6 +14,7 @@
         font-size: 35px;
         color: black;
         margin: 15px;
+        text-align: center;
     }
 
     #imagen {
@@ -101,7 +102,7 @@
 
 <div class="flex flex-col items-center  ">
 
-    <div class="w-11/12  bg-white rounded overflow-x-hidden flex snap-x b" style="height: auto;">
+    <div class="w-full  bg-white rounded overflow-x-hidden flex snap-x b" style="height: auto;">
 
         @foreach ($events as $event)
 
@@ -109,14 +110,17 @@
                 <div class="snap-start p-0 w-full h-full flex flex-col items-center justify-center text-white text-4xl font-bold flex-shrink-0 "
                     id="slide-{{ $event->id }}">
                     <h2 id="titulo">{{ $event->title }}</h2>
-                    <img id="imagen" class="w-50 " src="{{ asset('/uploads/events/' . $event->picture) }}">
+                    <div class="w-64  h-64">
+                        <img class="inset-0 h-full w-full rounded-xl p-3 "
+                            src="{{ asset('/uploads/events/' . $event->picture) }}" />
+                    </div>
                     <div class="container2">
                         <h3>Next {{ \Carbon\Carbon::parse($event->date)->format('d/m/Y') }} at 19:00</h3>
-                        
+
                     </div>
                     <a href="{{ route('show_event', $event->id) }}"><button
-                        class=" my-8 bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full"
-                        type="submit">Join the event!</button></a>
+                            class=" my-8 bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full"
+                            type="submit">Join the event!</button></a>
                 </div>
             @endif
 
