@@ -124,6 +124,8 @@ class EventsController extends Controller
             $event->picture = $filename;
         }
 
+       
+
         $event->save();
 
         return redirect()->route('logged_index')
