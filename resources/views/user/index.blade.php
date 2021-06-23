@@ -10,7 +10,7 @@
                   type="submit">Past events</button>
           </a>
           <a class="mr-10 text-center md:text-right" method="Post " href="{{ route('userEvents') }}"><button
-                  class="ml-8 my-8 bg-yellow-400 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full"
+                  class="ml-8 my-8 bg-yellow-400 hover:bg-yellow-400 text-white text-sm px-4 py-2  border rounded-full"
                   type="submit">My events</button></a>
 
       </div>
