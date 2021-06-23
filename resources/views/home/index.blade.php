@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+    <x-divPresentacion />
     <x-slider :events="$events" />
 
     <div class="flex justify-center">
