@@ -62,7 +62,7 @@
                     @enderror
                 </div>
 
-                <div class="containerEventUpload flex flex-col sm:flex-row justify-around items-start">
+                <div class="containerEventUpload flex flex-col sm:flex-row justify-around sm:items-start items-center lg:items-start">
                     <div class="grid grid-cols-1">
                         <label class="my-4 uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Highlight
                             Event</label>
