@@ -10,7 +10,7 @@
         <div>
             <img class=" w-full h-full rounded-3xl p-3"
                 src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80&sat=-100"
-                style="width: 200px;" alt="A computer background">
+                style="width: 250px;" alt="A computer background">
         </div>
     </div>
 </div>
