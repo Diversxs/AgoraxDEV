@@ -7,6 +7,11 @@
 <x-sliderAdmin :events="$events" />
 
 <a href="{{ route('admin_create') }}"><button class="ml-8 my-8 bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" type="submit">Create Event</button></a>
+
+<a href="{{ route('homePassedEvents') }}">
+    <button class="ml-8 my-8 bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 border rounded-full "
+        type="submit">Past events</button>
+</a>
 @foreach ( $events as $event )
 <a href="{{route('logged_show', $event->id)}}">
     <!-- /events admin -->
