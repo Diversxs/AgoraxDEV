@@ -7,7 +7,7 @@
 
     <div class="flex justify-center">
         <a href="{{ route('homePassedEvents') }}">
-            <button class=" bg-red-600 hover:bg-red-700 text-white text-sm px-4 mt-5 py-2 border rounded-full "
+            <button class=" bg-green-600 hover:bg-green-600 text-white text-sm px-4 mt-5 py-2 border rounded-full "
                 type="submit">Past events</button>
         </a>
     </div>
@@ -18,14 +18,14 @@
             <div class="container w-100 lg:w-4/5 mx-auto flex flex-col">
                 <!-- card -->
                 <div v-for="card in cards"
-                    class="flex flex-col md:flex-row overflow-hiddenbg-white rounded-lg shadow-xl p-5 mt-4 mb-2 w-100 mx-2 bg-green-300 flex items-center justify-center">
+                    class="flex flex-col md:flex-row overflow-hiddenbg-white rounded-lg shadow-xl p-5 mt-4 mb-2 w-100 mx-2 bg-indigo-900 flex items-center justify-center">
                     <!-- media -->
                     <div class="w-44  h-44   ">
                         <img class="inset-0 h-full w-full rounded-xl "
                             src="{{ asset('/uploads/events/' . $event->picture) }}" />
                     </div>
                     <!-- content -->
-                    <div class="w-full px-6 text-gray-800 flex flex-col justify-between ">
+                    <div class="w-full px-6 text-gray-50 flex flex-col justify-between ">
                         <h2 class="font-semibold text-3xl leading-tight truncate text-center sm:text-left mt-4">
                             {{ $event->title }}</h2>
                         <p class="mt-2 text-center sm:text-left">

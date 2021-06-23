@@ -51,6 +51,10 @@
 
 
 
+
+  
+
+
 <style>
     .snap-x {
         scroll-snap-type: x mandatory;
