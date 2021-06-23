@@ -4,23 +4,23 @@
 
 
     <x-slider :events="$events" />
-
-    <div class="flex justify-center">
+    <div class="bg-blue-900">
+    <div class="flex justify-center bg-blue-900 ">
         <a href="{{ route('homePassedEvents') }}">
             <button class="ml-8 my-8 bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2 border rounded-full "
                 type="submit">Past events</button>
         </a>
     </div>
 
-    @foreach ($events as $event)
+@foreach ($events as $event)
         <a href="{{ route('show_event', $event->id) }}">
 
             <div class="container w-100 lg:w-4/5 mx-auto flex flex-col">
                 <!-- card -->
                 <div v-for="card in cards"
-                    class="flex flex-col md:flex-row overflow-hiddenbg-white rounded-lg shadow-xl p-5 mt-4 w-100 mx-2 bg-blue-100 flex items-center justify-center">
+                    class="flex flex-col md:flex-row overflow-hiddenbg-white rounded-lg shadow-xl p-5 mt-4 w-100 mx-2 bg-blue-100 mb-32 items-center justify-center">
                     <!-- media -->
-                    <div class="w-44  h-44   ">
+                    <div class="w-44  h-44">
                         <img class="inset-0 h-full w-full rounded-xl "
                             src="{{ asset('/uploads/events/' . $event->picture) }}" />
                     </div>
@@ -55,7 +55,7 @@
                             </div>
 
                             <div class="flex flex-row items-center ">
-                                <a class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2 border rounded-full"
+                                <a class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  rounded-full"
                                     method="GET" href="{{ route('subscribe', $event->id) }}">
                                     <button type="submit">Join this event</button>
                                 </a>
@@ -68,6 +68,8 @@
             
         </a>
     @endforeach
-@endsection
 
+    
+@endsection
+</div>
 

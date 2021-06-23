@@ -1,12 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="btn_home text-center md:text-left">
+
+<div class="btn_home text-center md:text-left bg-blue-900">
     <a class="" method="Post" href="{{route('logged_index')}}">
         <button class="ml-8 my-8 bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" type="submit">Home</button>
     </a>
 </div>
-
+<div class="bg-blue-900">
 <div class="flex items-center justify-center flex-col rounded-3xl bg-blue-100 m-10 p-5 ">
     <div class="p-0 mt-5 mb-5  text-blue-800 flex-auto text-2xl md:text-4xl text-center font-bold ">
         <h2>{{ $event->title }}</h2>
@@ -78,6 +79,7 @@
             </div>
         </section>
     </div>
+</div>
 </div>
 
           
