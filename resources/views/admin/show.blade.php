@@ -1,11 +1,28 @@
 @extends('layouts.app')
 
 @section('content')
+<<<<<<< HEAD
+
+<div class="btn_home text-center md:text-left bg-blue-900">
+=======
 <div class="flex justify-center">
+>>>>>>> c227d6f3442e0ee143ca3b1c4000dd6481d84d1a
     <a class="" method="Post" href="{{route('logged_index')}}">
         <button class=" bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full" type="submit">Home</button>
     </a>
 </div>
+<<<<<<< HEAD
+<div class="bg-blue-900">
+<div class="flex items-center justify-center flex-col rounded-3xl bg-blue-100 m-10 p-5 ">
+    <div class="p-0 mt-5 mb-5  text-blue-800 flex-auto text-2xl md:text-4xl text-center font-bold ">
+        <h2>{{ $event->title }}</h2>
+    </div>
+
+    <div class="overflow-hidden shadow-3lg flex flex-col md:flex-row items-center rounded-3xl">
+        <div class="w-full flex justify-center">
+            <img src="{{ asset('/uploads/events/' . $event->picture) }}"
+                style="width: 50%; height: 50%; border-radius: 20px;">
+=======
 
 <div class="container w-100 lg:w-4/5 mx-auto flex flex-col">
     <!-- card -->
@@ -15,6 +32,7 @@
         <div class="w-44  h-44   ">
             <img class="inset-0 h-full w-full rounded-xl "
                 src="{{ asset('/uploads/events/' . $event->picture) }}" />
+>>>>>>> c227d6f3442e0ee143ca3b1c4000dd6481d84d1a
         </div>
         <!-- content -->
         <div class="w-full px-6 text-gray-800 flex flex-col justify-between ">
@@ -84,6 +102,7 @@
         </div>
     </div>
     <!--/ card-->
+</div>
 </div>
 
           

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
+<img class="h-4/5" src="https://static2.bigstockphoto.com/7/1/1/large1500/117408641.jpg" alt="image">
+
     <!-- horizontal card -->
     <h2 class="font-bold text-xl md:text-3xl mb-2 text-orange-700 text-center">About us</h2>
     <div class="flex md:flex-row flex-col items-center justify-center mt-20mt-5 md: mb-40 justify-center ">

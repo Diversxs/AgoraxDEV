@@ -7,13 +7,13 @@
 
 
 @foreach ($events as $event)
-    
 
 
-@if($event->date <now())
+
+@if($event->date <now())>
 
 <a href="{{ route('show_event', $event->id) }}">
-    <<div class="container w-100 lg:w-4/5 mx-auto flex flex-col">
+    <div class="container w-100 lg:w-4/5 mx-auto flex flex-col bg-blue-900">
         <!-- card -->
         <div v-for="card in cards"
             class="flex flex-col md:flex-row overflow-hiddenbg-white rounded-lg shadow-xl p-5 mt-4 mb-2 w-100 mx-2 bg-blue-100 flex items-center justify-center">
@@ -39,7 +39,7 @@
                             <p class="text-lg text-gray-700 uppercase tracking-wide font-semibold ">
                                 {{ $event->capacity - count($event->bookedInUsers) }}</p>
                         </div>
-    
+
                         <div class="flex flex-row items-center mt-5 mb-5">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="transparent"
                                 viewBox="0 0 24 24" stroke="currentColor">
@@ -51,7 +51,7 @@
                             </p>
                         </div>
                     </div>
-    
+
                     <div class="flex flex-row items-center ">
                         <a class="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2 border rounded-full"
                             method="GET" href="{{ route('subscribe', $event->id) }}">
