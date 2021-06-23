@@ -60,6 +60,7 @@
     </div>
     <!--/ card-->
 </div>
+<x-footer />
 @endsection
 
 

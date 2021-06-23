@@ -118,6 +118,8 @@
 
     </div>
 
+    <x-footer />
+
 @endsection
 
 <script type='text/javascript'>
