@@ -9,8 +9,7 @@ use Illuminate\Http\Request;
 use  Illuminate\Support\Facades\Auth;
 use App\Mail\EventsSuscribed;
 use Illuminate\Support\Facades\Mail;
-
-
+use Symfony\Contracts\Service\Attribute\Required;
 
 class EventsController extends Controller
 {
