@@ -14,4 +14,5 @@
         <a method="Post" href="{{route('userEvents')}}"><button class="ml-8 my-8 bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2 border rounded-full" type="submit">My Events</button></a>
     </div>
 
+    <x-footer />
 @endsection
