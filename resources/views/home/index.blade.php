@@ -70,13 +70,10 @@
         </a>
         
     @endforeach
-<<<<<<< HEAD
-=======
     
     <x-ScrollUpDown />
     <x-footer />
 @endsection
->>>>>>> c227d6f3442e0ee143ca3b1c4000dd6481d84d1a
 
     
 @endsection
