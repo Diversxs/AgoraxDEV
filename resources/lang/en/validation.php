@@ -134,9 +134,22 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'title' => [
+            'required' => 'Ingresa un nombre de título válido',
         ],
+        'description' => [
+            'required' => 'Ingresa una descripción válida',
+        ],
+        'date' => [
+            'required' => 'Ingresa una fecha válida',
+        ],
+        'capacity' => [
+            'required' => 'Ingresa un número de aforo válido',
+        ],
+        'isFavorite' => [
+            'required' => 'Selecciona si el evento es o no favorito',
+        ]
+
     ],
 
     /*

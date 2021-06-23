@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
-    <div class="flex h-screen items-center justify-center p-0 mt-20" id="containergrande">
-        <div class="grid bg-white rounded-lg shadow-2xl w-11/12 md:w-9/12 lg:w-1/2 mt-6">
+    <div class="flex h-screen items-center justify-center p-0 mt-40 sm:mt-5 mb-40 " id="containergrande">
+        <div class="grid bg-white rounded-lg shadow-2xl w-11/12 md:w-9/12 lg:w-1/2 mt-6 mb-10">
             <div class="flex justify-center">
                 <div class="mt-8 ">
                     <img src="https://i.ibb.co/CbHhPbW/Logo-1.png" alt="Logo-1" style="width: 80px;" id="imagenLogo" />
@@ -19,48 +19,61 @@
 
 
                 <div class="grid grid-cols-1 mt-5 mx-7">
-                    <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Event title</label>
+                    <label for='title' class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Event title</label>
                     <input
-                        class="py-2 px-3 rounded-lg  border-2 border-red-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                        class="py-2 px-3 rounded-lg border-2 border-red-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent @error('title') is-invalid @else is-valid @enderror"
                         type="text" placeholder="Title" name="title" />
+
+                        @error('title')
+                            <div class="mt-2 text-xs text-red-300 text-right">{{ $message }}</div>
+                        @enderror
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
                     <div class="grid grid-cols-1">
-                        <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Capacity</label>
+                        <label for='capacity' class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Capacity</label>
                         <input
-                            class="py-2 px-3 rounded-lg border-2 border-red-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                            class="py-2 px-3 rounded-lg border-2 border-red-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent @error('capacity') is-invalid @else is-valid @enderror"
                             type="number" placeholder="Capacity" name="capacity" />
+                        @error('capacity')
+                            <div class="mt-2 text-xs text-red-300 text-right">{{ $message }}</div>
+                        @enderror
+
                     </div>
 
                     <div class="grid grid-cols-1">
-                        <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Date</label>
+                        <label for='date' class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Date</label>
                         <input
-                            class="py-2 px-3 rounded-lg border-2 text-gray-500 border-red-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                            class="py-2 px-3 rounded-lg border-2 text-gray-500 border-red-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent @error('date') is-invalid @else is-valid @enderror"
                             type="date" placeholder="Date" name="date" />
+                        @error('date')
+                            <div class="mt-2 text-xs text-red-300 text-right">{{ $message }}</div>
+                        @enderror
                     </div>
 
                 </div>
 
                 <div class="grid grid-cols-1 mt-5 mx-7">
-                    <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Description</label>
+                    <label for='description' class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Description</label>
                     <input
-                        class="py-2 px-3 rounded-lg border-2  border-red-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                        class="py-2 px-3 rounded-lg border-2  border-red-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent @error('description') is-invalid @else is-valid @enderror"
                         type="text" placeholder="Description" name="description" />
+                    @error('description')
+                            <div class="mt-2 text-xs text-red-300 text-right">{{ $message }}</div>
+                    @enderror
                 </div>
 
-                <div class="containerEventUpload">
+                <div class="containerEventUpload flex flex-col sm:flex-row justify-center items-center ">
                     <div class="grid grid-cols-1 mt-5 mx-7 mb-2">
                         <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Highlight
                             Event</label>
-                        <label class="inline-flex items-center mt-2">
-                            <input type="radio" class="form-radio text-red-600" name="isFavorite" value="true" />
-                            <span class="ml-2 text-gray-500 text-light">Favorite event</span>
-                        </label>
-                        <label class="inline-flex items-center">
-                            <input type="radio" class="form-radio text-gray-500" name="isFavorite" value="false" />
-                            <span class="ml-2 text-gray-500 text-light">Not Favorite event</span>
-                        </label>
+
+                        <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                            <input type="checkbox" name="isFavorite" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" value="true"/>
+                            <label for="isFavorite" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                        </div>
+
+
 
                     </div>
 
@@ -97,16 +110,14 @@
 
                     <div class='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
                         <a method="Post " href="{{ route('logged_index') }}">
-                            <button
-                                class='w-auto bg-red-500 hover:bg-red-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'
+                            <button class='bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full'
                                 type="button">Cancel</button>
                         </a>
-                        <button
-                            class='w-auto bg-gray-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'
+                        <button class='bg-green-600 hover:bg-green-700 text-white text-sm px-4 py-2  border rounded-full'
                             type="submit">Create</button>
 
                     </div>
-
+                </div>
             </form>
         </div>
 
@@ -139,11 +150,21 @@
 
 
     @media screen and (max-width: 600px) {
-
         #imagenLogo {
             display: none;
         }
+    }
 
+    .toggle-checkbox:checked {
+        @apply: right-0 border-green-400;
+        right: 0;
+        border-color: #68D391;
+    }
+    .toggle-checkbox:checked + .toggle-label {
+        @apply: bg-green-400;
+        background-color: #68D391;
     }
 
 </style>
+
+
