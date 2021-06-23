@@ -21,7 +21,7 @@
     </div>
     <div class="flex md:flex-row flex-col items-center justify-center mt-20mt-5 md: mb-40 justify-center ">
         <div class="p-5 bg-orange-200 flex content-center items-center justify-center">
-            <div class="bg-indigo-900 rounded-lg shadow-2xl md:flex flex-col items-center justify-center">
+            <div class="bg-red-500 rounded-lg shadow-2xl md:flex flex-col items-center justify-center">
                 <div class="flex content-center items-center justify-center mt-3">
                     <img src="https://media-exp3.licdn.com/dms/image/C4D03AQESBs_1AXX49g/profile-displayphoto-shrink_400_400/0/1614425429443?e=1629936000&v=beta&t=cNMr_ixololDcDRtsIFyuxUHRA57SxeSj_WQo92Wcq0" alt="Logo-1"
                         style="width: 100px; margin: 15px; border-radius: 100%" />
@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="p-5 bg-orange-200 flex content-center items-center justify-center">
-            <div class="bg-indigo-900 rounded-lg shadow-2xl md:flex flex-col items-center justify-center">
+            <div class="bg-red-500 rounded-lg shadow-2xl md:flex flex-col items-center justify-center">
                 <div class="flex content-center items-center justify-center mt-3">
                     <img src="https://media-exp3.licdn.com/dms/image/C4E03AQEOIzvp4GBOjQ/profile-displayphoto-shrink_400_400/0/1551011872911?e=1629936000&v=beta&t=x6t7SeVed0nesy1bAyFpcRmYvHx4qftvML2wbSnuR4Y" alt="Logo-1"
                         style="width: 100px; margin: 15px; border-radius: 100%" />
@@ -55,7 +55,7 @@
             </div>
         </div>
         <div class="p-5 bg-orange-200 flex content-center items-center justify-center">
-            <div class="bg-indigo-900 rounded-lg shadow-2xl md:flex flex-col items-center justify-center">
+            <div class="bg-red-500 rounded-lg shadow-2xl md:flex flex-col items-center justify-center">
                 <div class="flex content-center items-center justify-center mt-3">
                     <img src="https://media-exp3.licdn.com/dms/image/C4D03AQEqqJ8HZu3Oxw/profile-displayphoto-shrink_400_400/0/1622804419525?e=1629936000&v=beta&t=le5uCbQLUnGG2N_oYL2Cxsh2WdLiTFxamOSTEN2CHKo" alt="Logo-1"
                         style="width: 100px; margin: 15px; border-radius: 100%" />
@@ -72,7 +72,7 @@
             </div>
         </div>
         <div class="p-5 bg-orange-200 flex content-center items-center justify-center">
-            <div class="bg-indigo-900 rounded-lg shadow-2xl md:flex flex-col items-center justify-center">
+            <div class="bg-red-500 rounded-lg shadow-2xl md:flex flex-col items-center justify-center">
                 <div class="flex content-center items-center justify-center mt-3">
                     <img src="https://media-exp3.licdn.com/dms/image/C5603AQFlb3CpMCL-Tg/profile-displayphoto-shrink_400_400/0/1620729876880?e=1629936000&v=beta&t=yb31Li9Z6stACga30KD3xJuvJhWhvbWFXAz671R-jew" alt="Logo-1"
                         style="width: 100px; margin: 15px; border-radius: 100%" />
@@ -89,7 +89,7 @@
             </div>
         </div>
         <div class="p-5 bg-orange-200 flex content-center items-center justify-center">
-            <div class="bg-indigo-900 rounded-lg shadow-2xl md:flex flex-col items-center justify-center">
+            <div class="bg-red-500 rounded-lg shadow-2xl md:flex flex-col items-center justify-center">
                 <div class="flex content-center items-center justify-center mt-3">
                     <img src="https://i.ibb.co/CbHhPbW/Logo-1.png" alt="Logo-1"
                         style="width: 80px; margin: 15px; border-radius: 100%" />
