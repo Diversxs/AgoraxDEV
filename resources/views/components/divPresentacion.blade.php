@@ -1,4 +1,4 @@
-<div class=" inset-0 bg-indigo-500 mix-blend-multiply p-6 mb-4">
+<div class=" inset-0 bg-indigo-900 mix-blend-multiply p-6 mb-4">
     <div class="flex  justify-center items-center px-2  mx-auto my-auto max-w-7xl md:max-h-2xl md:py-6 flex sm:flex-row flex-col">
         <div class="flex justify-center items-center flex-col sm:mr-10 mr-0">
             <h1 class="text-4xl text-white md:text-5xl font-bold content-center p-3">Agorax Events</h1>
