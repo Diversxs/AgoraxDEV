@@ -18,63 +18,68 @@
                     </div>
                 </div>
 
-
                 <div class="grid grid-cols-1 mt-5 mx-7">
-                    <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Event title</label>
+                    <label for='title' class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Event title</label>
                     <input
-                        class="py-2 px-3 rounded-lg border-2 border-red-300 mt-1 focus:outline-none focus:ring-2  text-gray-500 focus:ring-purple-600 focus:border-transparent"
+                        class="py-2 px-3 rounded-lg border-2 border-red-300 mt-1 focus:outline-none focus:ring-2  text-gray-500 focus:ring-purple-600 focus:border-transparent @error('title') is-invalid @else is-valid @enderror"
                         type="text" placeholder="" name="title" value="{{ $event->title }}" />
+                        @error('title')
+                            <div class="mt-2 text-xs text-red-300 text-right">{{ $message }}</div>
+                        @enderror
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
                     <div class="grid grid-cols-1">
-                        <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Capacity</label>
+                        <label for='capacity' class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Capacity</label>
                         <input
-                            class="py-2 px-3 rounded-lg border-2 border-red-300 mt-1 focus:outline-none focus:ring-2 text-gray-500 focus:ring-purple-600 focus:border-transparent"
+                            class="py-2 px-3 rounded-lg border-2 border-red-300 mt-1 focus:outline-none focus:ring-2 text-gray-500 focus:ring-purple-600 focus:border-transparent @error('capacity') is-invalid @else is-valid @enderror"
                             type="number" placeholder="Capacity" name="capacity" value="{{ $event->capacity }}" />
+                        @error('capacity')
+                            <div class="mt-2 text-xs text-red-300 text-right">{{ $message }}</div>
+                        @enderror
+                        
                     </div>
 
                     <div class="grid grid-cols-1">
-                        <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Date</label>
+                        <label for='date' class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Date</label>
                         <input
-                            class="py-2 px-3 rounded-lg border-2 border-red-300 mt-1 focus:outline-none focus:ring-2 text-gray-500 focus:ring-purple-600 focus:border-transparent"
+                            class="py-2 px-3 rounded-lg border-2 border-red-300 mt-1 focus:outline-none focus:ring-2 text-gray-500 focus:ring-purple-600 focus:border-transparent  @error('date') is-invalid @else is-valid @enderror"
                             type="date" placeholder="Date" name="date" value="{{ $event->date }}" />
+                        @error('date')
+                            <div class="mt-2 text-xs text-red-300 text-right">{{ $message }}</div>
+                        @enderror
                     </div>
 
                 </div>
 
-
-
                 <div class="grid grid-cols-1 mt-5 mx-7 ">
-                    <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Description</label>
+                    <label for='description' class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Description</label>
                     <textarea
-                        class="py-2 px-3 rounded-lg border-2 border-red-300 mt-1 focus:outline-none text-gray-500 focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                        class="py-2 px-3 rounded-lg border-2 border-red-300 mt-1 focus:outline-none text-gray-500 focus:ring-2 focus:ring-purple-600 focus:border-transparent @error('description') is-invalid @else is-valid @enderror"
                         type="text"  name="description"  >{{ $event->description }}</textarea>
+                    @error('description')
+                            <div class="mt-2 text-xs text-red-300 text-right">{{ $message }}</div>
+                    @enderror
                 </div>
 
-                
-
-                <div class="containerEventUpload flex flex-col sm:flex-row justify-center items-center ">
-                  <div class="grid grid-cols-1 mt-5 mx-7 mb-2">
-                      <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Highlight
+                <div class="containerEventUpload flex flex-col sm:flex-row justify-around items-start">
+                  <div class="grid grid-cols-1">
+                      <label class="my-4 uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Highlight
                           Event</label>
-                      <label class="inline-flex items-center mt-2">
-                          <input type="radio" class="form-radio text-red-600" name="isFavorite" value="true" />
-                          <span class="ml-2 text-gray-500 text-light">Favorite event</span>
-                      </label>
-                      <label class="inline-flex items-center">
-                          <input type="radio" class="form-radio text-gray-500" name="isFavorite" value="false" />
-                          <span class="ml-2 text-gray-500 text-light">Not Favorite event</span>
-                      </label>
+                          
+                      <div class="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
+                            <input type="checkbox" name="isFavorite" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" value="true"/>
+                            <label for="isFavorite" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                        </div>
 
                   </div>
 
-                  <div class="grid grid-cols-1 mt-5 mx-7">
-                      <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold mb-1">Upload
+                  <div class="grid grid-cols-1">
+                      <label class="my-4 uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Upload
                           Photo</label>
                       <div class='flex items-center justify-start '>
                           <label
-                              class='flex flex-col justify-center items-center border-4 border-dashed w-32 h-32 hover:bg-white-100 hover:border-red-300 group mt-4'>
+                              class='flex flex-col justify-center items-center border-4 border-dashed w-32 h-32 hover:bg-white-100 hover:border-red-300 group'>
                               <div class='flex flex-col items-center '>
                                   <img id="output_image" style="width: 100%;" />
 
@@ -145,7 +150,17 @@
         #imagenLogo2 {
             display: none;
         }
+    }
 
+    
+    .toggle-checkbox:checked {
+        @apply: right-0 border-green-400;
+        right: 0;
+        border-color: #312E81;
+    }
+    .toggle-checkbox:checked + .toggle-label {
+        @apply: bg-green-400;
+        background-color: #DC2626;
     }
 
 </style>
