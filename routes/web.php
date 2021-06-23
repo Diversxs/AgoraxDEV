@@ -49,5 +49,9 @@ Route::get('/aboutUs', function () {
     return view('/components/aboutUs');
 });
 
+Route::get('/aboutProject', function () {
+    return view('/components/aboutProject');
+});
+
 
 require __DIR__ . '/auth.php';

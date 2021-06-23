@@ -73,9 +73,9 @@
     
     <x-ScrollUpDown />
     <x-footer />
-@endsection
+
 
     
-@endsection
-</div>
 
+</div>
+@endsection
