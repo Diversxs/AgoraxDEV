@@ -17,7 +17,6 @@
                     </div>
                 </div>
 
-
                 <div class="grid grid-cols-1 mt-5 mx-7">
                     <label for='title' class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Event title</label>
                     <input
@@ -63,26 +62,23 @@
                     @enderror
                 </div>
 
-                <div class="containerEventUpload flex flex-col sm:flex-row justify-center items-center ">
-                    <div class="grid grid-cols-1 mt-5 mx-7 mb-2">
-                        <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Highlight
+                <div class="containerEventUpload flex flex-col sm:flex-row justify-around sm:items-start items-center lg:items-start">
+                    <div class="grid grid-cols-1">
+                        <label class="my-4 uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Highlight
                             Event</label>
 
-                        <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                        <div class="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
                             <input type="checkbox" name="isFavorite" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" value="true"/>
                             <label for="isFavorite" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
                         </div>
-
-
-
                     </div>
 
-                    <div class="grid grid-cols-1 mt-5 mx-7">
-                        <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-bold mb-1">Upload
+                    <div class="grid grid-cols-1">
+                        <label class="my-4 uppercase md:text-sm text-xs text-gray-500 text-light font-bold">Upload
                             Photo</label>
                         <div class='flex items-center justify-start '>
                             <label
-                                class='flex flex-col justify-center items-center border-4 border-dashed w-32 h-32 hover:bg-white-100 hover:border-red-300 group mt-4'>
+                                class='flex flex-col justify-center items-center border-4 border-dashed w-32 h-32 hover:bg-white-100 hover:border-red-300 group'>
                                 <div class='flex flex-col items-center '>
                                     <img id="output_image" style="width: 100%;" />
 
@@ -104,8 +100,6 @@
                     </div>
                 </div>
 
-
-
                 <div class="flex items-center justify-center my-5">
 
                     <div class='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
@@ -123,7 +117,7 @@
 
     </div>
 
-
+    <x-footer />
 @endsection
 
 <script type='text/javascript'>
@@ -158,11 +152,11 @@
     .toggle-checkbox:checked {
         @apply: right-0 border-green-400;
         right: 0;
-        border-color: #68D391;
+        border-color: #312E81;
     }
     .toggle-checkbox:checked + .toggle-label {
         @apply: bg-green-400;
-        background-color: #68D391;
+        background-color: #DC2626;
     }
 
 </style>

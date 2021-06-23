@@ -26,7 +26,7 @@
 
                     </div>
                     <a href="{{ route('show_event', $event->id) }}"><button
-                            class="  bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full"
+                            class="  bg-indigo-600 hover:bg-indigo-700 text-white text-sm px-4 py-2  border rounded-full"
                             type="submit">Join the event!</button></a>
                 </div>
             @endif
