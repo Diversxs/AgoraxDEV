@@ -118,7 +118,7 @@
 
                     </div>
                     <a href="{{ route('admin_edit', $event->id) }}"><button
-                            class=" my-8 bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2  border rounded-full"
+                            class=" my-8 bg-green-900 hover:bg-pink-900 text-white text-sm px-4 py-2   rounded-full"
                             type="submit">Edit event</button></a>
 
 
