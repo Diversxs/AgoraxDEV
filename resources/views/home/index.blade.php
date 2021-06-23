@@ -4,8 +4,8 @@
 
     <x-divPresentacion />
     <x-slider :events="$events" />
-    <div class="bg-blue-900">
-    <div class="flex justify-center bg-blue-900 ">
+    <div >
+    <div class="flex justify-center  ">
         <a href="{{ route('homePassedEvents') }}">
             <button class=" bg-green-600 hover:bg-green-600 text-white text-sm px-4 mt-5 py-2 border rounded-full "type="submit">Past events</button>
         </a>
