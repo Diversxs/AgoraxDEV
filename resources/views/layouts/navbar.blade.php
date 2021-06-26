@@ -3,7 +3,7 @@
 <div class="min">
   <div class="antialiased bg-gray-100 dark-mode:bg-gray-900 mb-4">
   <div class="w-full text-gray-700  bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
-    <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+    <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl text-sm  px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
       <div class="flex flex-row items-center justify-between p-4 ">
 
         <div class="logo">
@@ -23,10 +23,10 @@
           </svg>
         </button>
       </div>
-      <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
+      <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow hidden  text-sm pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
     @auth
     <form method="POST" action="{{ route('logout') }}" >
-        @csrf <x-dropdown-link :href="route('logout')" class=" dark-mode:hover:bg-indigo-600 hover:bg-indigo-200 focus:bg-indigo-200 rounded-lg"
+        @csrf <x-dropdown-link :href="route('logout')" class=" text-sm dark-mode:hover:bg-indigo-600 hover:bg-indigo-200 focus:bg-indigo-200 rounded-lg"
                 onclick="event.preventDefault();
                             this.closest('form').submit();">
             {{ __('Log Out') }}
