@@ -33,7 +33,7 @@ Route::get('/events/create', [EventsController::class, "create"])->name('admin_c
 Route::get('/events/{id}/edit', [EventsController::class, "edit"])->name('admin_edit')->middleware(IsAdmin::class);
 Route::delete('/events/delete/{id}', [EventsController::class, "destroy"])->name('admin_delete')->middleware(IsAdmin::class);
 Route::post('/events/store', [EventsController::class, "store"])->name('admin_store')->middleware(IsAdmin::class);
-Route::patch('/events/{event}/update', [EventsController::class, "update"])->name('admin_update')->middleware(IsAdmin::class);
+Route::patch('/events/upate/{event}', [EventsController::class, "update"])->name('admin_update')->middleware(IsAdmin::class);
 Route::get('/events/passed', [EventsController::class, 'passedEvents'])->name('passedEvents');
 
 

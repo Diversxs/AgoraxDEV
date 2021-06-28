@@ -79,31 +79,5 @@ class EventsTest extends TestCase
         $response->assertRedirect(route('logged_index'));
     }
 
-    public function test_that_an_event_can_be_updated(){
-        $this->withExceptionHandling();
-        $admin = User::factory()->create([
-            'name' => 'root',
-            'email' => '123@mail.com',
-            'isAdmin' => true
-        ]);
-        $this->actingAs($admin);
-        $newEvent = $this->post('/events/store', [
-            'title' => 'event1',
-            'description' => 'cool event',
-            'picture' => 'aaa',
-            'date' => '14/12/20',
-            'capacity' => '30'
-        ]);
-
-        $newEvent->assertRedirect(route('logged_index'));
-        $this->assertCount(1, Events::all());
-
-
-        $event= Events::first();
-
-        $this->assertEquals($event->title, 'event1');
-        $this->assertEquals($event->description, 'cool event');
-    }
-
 
 }
