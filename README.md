@@ -33,4 +33,4 @@ _ The tools we have used are: _
 
 _If you want to see our events page to see events or create them, scan this QR
 
-![qr code for the app page](src/img/frame.png)
+![qr code for the app page](<img src="frame.png" alt="QR">)
