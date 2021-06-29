@@ -123,7 +123,7 @@ class EventsController extends Controller
             $event->picture = $filename;
         }
 
-       
+
 
         $event->save();
 
@@ -163,7 +163,7 @@ class EventsController extends Controller
 
         $user = Auth::user();
         $event = Events::find($id);
-        $event->BookedInUsers()->detach($user);
+        $event->bookedInUsers()->detach($user);
         return redirect()->route('logged_index')
             ->with('success', 'Event Unbooked');
     }
