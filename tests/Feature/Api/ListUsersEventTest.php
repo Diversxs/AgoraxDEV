@@ -12,7 +12,7 @@ use App\Models\User;
 class ListUsersEventTest extends TestCase
 {
     use RefreshDatabase;
-    
+
     /**
      * A basic feature test example.
      *
@@ -27,23 +27,32 @@ class ListUsersEventTest extends TestCase
         $response->assertStatus(200)
                  ->assertJsonCount(2);
     }
-    
+
     public function test_CheckIfEventHasBookedByUsers()
 
     {
         $event1 = Events::factory() -> create();
-        
-        $user = User::factory(2) -> create();
-                
+
+        $user = User::factory() -> create([
+            'name'=>'user1',
+            'email'=>'123@mail.com'
+        ]);
+        $user2 = User::factory() -> create([
+            'name'=>'user2',
+            'email'=>'1234@mail.com'
+        ]);
+
         $event1->bookedInUsers()->attach($user);
-                        
+        $event1->bookedInUsers()->attach($user2);
+
         $response = $this->get('/api/events/1/subscribers');
 
         $response->assertStatus(200)
-                 ->assertJsonCount(2);
-                 
-                
+                 ->assertJsonCount(2)
+                 ->assertJsonFragment(['name'=>'user1',
+                 'email'=>'123@mail.com']);
+
+
     }
 
-    
 }

@@ -12,16 +12,16 @@ class ApiEventController extends Controller
     {
         $events = Events::all();
 
-        return response()->json(Events::all(), 200);
+        return response()->json($events, 200);
     }
 
-    public function bookedInUsers($id)  
+    public function listedUsers($id)
     {
         $event = Events::find($id);
 
-        $users = $event->bookedInUsers();
+        $users = $event->bookedInUsers;
 
-        return response()->json($event->bookedInUsers(), 200);
+        return response()->json($users, 200);
     }
 
 }

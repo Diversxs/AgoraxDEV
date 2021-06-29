@@ -20,4 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/events', [ApiEventController::class, "index"]);
 
-Route::get('/events/{id}/subscribers', [ApiEventController::class, "bookedInUsers"]);
+Route::get('/events/{id}/subscribers', [ApiEventController::class, "listedUsers"]);
