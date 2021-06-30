@@ -123,7 +123,7 @@ class EventsController extends Controller
             $event->picture = $filename;
         }
 
-       
+
 
         $event->save();
 

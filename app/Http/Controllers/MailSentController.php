@@ -13,7 +13,7 @@ class MailSentController extends Controller
     public function index()
     {
         return view('subscribedMail.index');
-    }
+    } 
 
 
     public function store()
