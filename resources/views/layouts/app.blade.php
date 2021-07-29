@@ -12,12 +12,14 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/slider.css') }}">
+        
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased">
-        
+    <body class="font-sans antialiased" style="background-color: #F2F2F2">
+
 
             <!-- Page Heading -->
             <header class="bg-white shadow">
@@ -26,9 +28,9 @@
 
             <!-- Page Content -->
             <main>
-              @yield('scripts')  
+           
               @yield('content')
             </main>
-        </div>
+
     </body>
 </html>

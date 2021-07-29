@@ -22,11 +22,10 @@ class EventsFactory extends Factory
     public function definition()
     {
         return [
-            'title'=>$this->faker->company(),
-            'description'=>$this->faker->realText(),
-            'picture'=>$this->faker->image(),
-            'date'=>$this->faker->dateTime(),
-
+            'title' => $this->faker->company(),
+            'description' => $this->faker->realText(),
+            'picture' => $this->faker->image(),
+            'date' => $this->faker->dateTime(),
         ];
     }
 }
