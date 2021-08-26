@@ -76,9 +76,11 @@ class EventsController extends Controller
             $file = $request->file('picture');
             $extention = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extention;
+            dd($filename);
             $file->move('uploads/events/', $filename);
             $event->picture = $filename;
         }
+      
 
         $event->save();
 
