@@ -24,8 +24,8 @@ _ The tools we have used are: _
 
 ## Authors ✒️
 
-* **Marti madridejos** - [GitHub](#https://github.com/martindejos)
-* **Alexandra Garlanza** - [GitHub](#https://github.com/MAlexGG)
+* **Martin Madridejos** - [GitHub](#https://github.com/martindejos)
+* **Alexandra Galarza** - [GitHub](#https://github.com/MAlexGG)
 * **Stefanova** - [GitHub](#https://github.com/snejana88)
 * **Leah Calafell** - [GitHub](#https://github.com/leahcalafell97)
 * **Armando Mago** - [GitHub](https://github.com/Armun4)
